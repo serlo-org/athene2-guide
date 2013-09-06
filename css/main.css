@@ -24,10 +24,9 @@ body {
   #side-nav .nav li.active a {
     color: white;
     background: #333; }
-
-@media (min-width: 768px) {
-  .affix {
-    position: static; } }
+  @media (max-width: 992px) {
+    #side-nav.affix {
+      position: static; } }
 
 .page-header {
   padding-top: 85px; }
