@@ -1,0 +1,10 @@
+<div id="side-nav" class="panel panel-default">
+    <ul class="nav">
+        <li><a href="#top">Start</a></li>
+    {% for page in site.pages %}
+        {% if page.title != "Home" %}
+        <li><a href="#{{ page.anchor  }}">{{ page.title }}</a></li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,4 @@
+name: Athene2 Guide
+markdown: redcarpet
+pygments: true
+baseurl: /

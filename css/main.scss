@@ -1,0 +1,46 @@
+/* reset */
+body {
+    margin: 0;
+}
+
+.highlight {
+    border-radius: 4px;
+    padding: 12px 0;
+
+    pre {
+        background-color: #F5F5F5;
+        color: #333;
+        border: 1px solid #CCC;
+    }
+}
+
+.lineno {
+    &:after {
+        content: " ";
+    }
+}
+
+#side-nav {
+    width: 213px;
+    margin-top: 85px;
+    
+    @media (min-width: 1200px) {
+        width: 263px;
+    }
+    
+    .nav li {
+        a {
+            color: #363636;
+        }
+
+        &.active a {
+            // color: #428BCA;
+            color: white;
+            background: #333;
+        }
+    }
+}
+
+.page-header {
+    padding-top: 85px;
+}
