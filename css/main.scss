@@ -23,7 +23,7 @@ body {
 #side-nav {
     width: 213px;
     margin-top: 85px;
-    
+
     @media (min-width: 1200px) {
         width: 263px;
     }
@@ -38,6 +38,12 @@ body {
             color: white;
             background: #333;
         }
+    }
+}
+
+.affix {
+    @media (min-width: 768px) {
+        position: static;
     }
 }
 
