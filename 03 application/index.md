@@ -1,6 +1,6 @@
 ---
 layout: section
-title: Applikation
+title: Application
 anchor: application
 ---
 
