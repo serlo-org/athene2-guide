@@ -1,8 +1,6 @@
 ---
 layout: section
-title: Module
+title: Modules
 anchor: modules
 ---
 
-# Versioning
-## Setup
