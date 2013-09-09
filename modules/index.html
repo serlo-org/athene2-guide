@@ -1,0 +1,18 @@
+---
+layout: default
+title: Modules
+anchor: modules
+group: 'modules'
+mainNavWeight: 2
+---
+
+<h1 id="get-started" class="page-header">Get Started</h1>
+
+{% for node in site.pages %}
+{% if node.group == page.group and node.title != page.title %}
+<article class="page">
+    <h2 class="page-header" id="{{ node.anchor }}">{{ node.title }}</h2>
+{{ node.content | markdownify }}
+</article>
+{% endif %}
+{% endfor %}

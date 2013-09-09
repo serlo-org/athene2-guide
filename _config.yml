@@ -2,3 +2,4 @@ name: Athene2 Guide
 markdown: redcarpet
 pygments: true
 baseurl: /athene2-guide
+# baseurl: /

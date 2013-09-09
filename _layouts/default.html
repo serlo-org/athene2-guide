@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="{{ site.baseurl }}/bootstrap/css/bootstrap.min.css">
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="{{ site.baseurl }}/css/syntax.css">
-
         <!-- Custom CSS -->
         <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
 
@@ -21,6 +20,9 @@
             <div class="navbar-header">
               <a href="../" class="navbar-brand">{{ site.name }}</a>
             </div>
+            <ul class="nav navbar-nav">
+                {% include nav.html %}
+            </ul>
           </div>
         </header>
         <section class="content container">

@@ -1,0 +1,15 @@
+<!--<li><a href="{{ site.baseurl }}get-started">Get Started</a></li>
+<li><a href="{{ site.baseurl }}ui">UI</a></li>
+<li><a href="{{ site.baseurl }}modules">Modules</a></li>-->
+{% assign pages_list = site.pages %}
+{% for weight in (1..10) %}
+    {% for node in pages_list %}
+        {% if node.mainNavWeight and node.mainNavWeight == weight %}
+            {% if page.title == node.title %}
+            <li class="active"><a href="{{ site.baseurl }}{{ node.url }}">{{ node.title}}</a></li>
+            {% else %}
+            <li><a href="{{ site.baseurl }}{{ node.url }}">{{ node.title}}</a></li>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}
