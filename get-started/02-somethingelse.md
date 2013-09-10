@@ -8,3 +8,4 @@ group: 'getstarted'
 ### Something else
 
     a = b
+

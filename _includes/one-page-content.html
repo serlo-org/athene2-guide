@@ -1,4 +1,4 @@
-{% assign nodes = site.pages | sort:"name" %}
+{% assign nodes = site.pages | sort:"path" %}
 {% for node in nodes %}
 {% if node.group == page.group and node.title != page.title %}
 <article class="page">
