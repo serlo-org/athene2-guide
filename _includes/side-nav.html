@@ -1,6 +1,6 @@
 <div id="side-nav" class="panel panel-default">
 <ul class="nav">
-{% assign nodes = site.pages | sort:"name" %}
+{% assign nodes = site.pages %}
 {% for node in nodes %}
 {% if node.group == page.group and node.title != page.title %}
 <li><a href="#{{ node.anchor }}">{{ node.title }}</a></li>
