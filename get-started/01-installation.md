@@ -8,7 +8,7 @@ group: 'getstarted'
 ### Anforderungen
 
 * PHP 5.4+
-* Mysql 6+
+* Mysql 5.5+
 
 ### Installation
 
@@ -18,3 +18,9 @@ group: 'getstarted'
 * `cp config/autoload/local.php.dist config/autoload/local.php` (Linux)
 * `copy config/autoload/local.php.dist config/autoload/local.php` (Windows)
 * Bearbeite `config/autoload/local.php`
+
+### Tests
+
+* `mysql < db/test.sql
+* `cd src/test/AtheneTest`
+* `phpunit`
