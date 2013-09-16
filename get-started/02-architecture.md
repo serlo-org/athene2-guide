@@ -16,6 +16,7 @@ Nehmen wir als Beispiel ein Blogmodul, welches Blogeinträge aus der Datenbank a
 * Post implements PostInterface
 
 Der Postmanager hält alle Posts, er ist grob gesagt eine [Fassade](http://de.wikipedia.org/wiki/Fassade_(Entwurfsmuster)) für den ObjectManager, einen InstanceManager und was auch immer sonst noch benötigt wird. Anstatt nun Doctrine umständlich in Controllern aufzurufen, ruft man einfach den PostManager auf, zum Beispiel: `$postManager->getPost(1)` oder `$postManager->getPostsByUser(1)`.
+Manager implementieren immer das CRUD-Pattern (Create, Receive, Update, Delete)!
 
 Der PostService [delegiert](http://en.wikipedia.org/wiki/Delegation_pattern) die meisten Aufrufe an das Entity (Post), ermöglicht es aber, Abhängigkeiten zu injezieren, was bei Entities verboten ist. So kann man beispielsweise komplexe Abfragen per SQL-Query lösen, was im Entity nicht müglich wäre.
 
