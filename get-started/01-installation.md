@@ -21,6 +21,5 @@ group: 'getstarted'
 
 ### Tests
 
-* `mysql < db/test.sql
 * `cd src/test/AtheneTest`
 * `phpunit`
