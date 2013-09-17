@@ -4,6 +4,7 @@ title: Versioning
 anchor: versioning
 group: 'modules'
 ---
+Das Versioning Modul stellt eine Repository API bereit.
 
 ### Architektur
 
