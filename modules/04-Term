@@ -1,0 +1,44 @@
+---
+layout: section
+title: Term
+anchor: term
+group: 'modules'
+---
+
+Das Termmodul hält Wörter, welche zum Beispiel für die Taxonomy verwendet werden.
+
+### Architektur
+
+* `TermManager` hält die Terms
+* `TermService` hält den Term
+* `Term` das Entity
+
+### Setup
+
+Kein Setup nötig!
+
+### Benutzen
+
+#### Einen Term über die ID finden
+
+```php
+$term = $termManager->getTerm(1);
+```
+
+#### Einen Term über den Namen finden
+
+```php
+$term = $termManager->findTermByName('foobar');
+```
+
+#### Einen Term über den Slug finden
+
+```php
+$term = $termManager->findTermBySlug('foobar');
+```
+
+#### Einen Term erstellen
+
+```php
+$term = $termManager->findTermBySlug('foobar');
+```
