@@ -9,13 +9,20 @@ Das Uuid Modul ist zuständig für die "universal unique ids". Es wird benötigt
 
 ### Architektur
 
-* UUidManager: Der Manager, welcher es ermöglicht uuids zu finden und zu erstellen.
-* Uuid: Das Entity für die uuid Tabelle.
-* UuidEntity: Ein Entity, welches eine uuid trägt.
+* `UUid\Manager\UUidManager implements UUid\Manager\UUidManagerInterface`: Der Manager, welcher es ermöglicht uuids zu finden und zu erstellen.
+* `UUid\Entity\Uuid implements Uuid\Entity\UuidInterface`: Das Entity für die uuid Tabelle.
+* `UUid\Entity\UuidEntity implements Uuid\Entity\UuidHolder`: Ein Entity, welches eine uuid trägt.
+
+Der ServiceManager kennt `UUid\Manager\UUidManager`.
+
+#### Achtung
+
+`$uuidManager->create()` flushed den ObjectManager, dies ist aufgrund einer Restriktion von [Doctrine](http://stackoverflow.com/questions/9117227/doctrine-2-multi-level-onetoone-cascade)!
 
 ### Setup
 
 Wir haben Blogeinträge, die eine Uuid besitzen.
+
 
 BlogPost.php
 
