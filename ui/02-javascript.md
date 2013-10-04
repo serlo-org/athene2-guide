@@ -20,27 +20,30 @@ Alle JS Dateien werden über grunt mit jshint geprüft.
 
 Eigene Module müssen mit requirejs eingebunden werden:
 
-    /*global define*/
-    define('myModule', ['jquery'], function ($) {
-        "use strict";
-        var MyModule = function () {...};
+```js
+/*global define*/
+define('myModule', ['jquery'], function ($) {
+    "use strict";
+    var MyModule = function () {...};
 
-        return MyModule;
-    });
+    return MyModule;
+});```
 
 (siehe auch [http://requirejs.org/](http://requirejs.org/))
 
 Um module verwenden zu können müssen sie in der mainConfig (scripts/main.js) registriert werden:
 
-    require.config({
-        paths: {
-            "myModule": "modules/my_module"
-        }
-    });
+```js
+require.config({
+    paths: {
+        "myModule": "modules/my_module"
+    }
+});```
 
 Dann können sie z.B. in der Hauptapplikation (scripts/ATHENE2.js) verwendet werden:
 
-    define("ATHENE2", ['jquery', 'referrer_history', 'my_module'], function ($, ReferrerHistory, MyModule) {
-        "use strict";
-        var myInstance = new MyModule();
-    });
+```js
+define("ATHENE2", ['jquery', 'referrer_history', 'my_module'], function ($, ReferrerHistory, MyModule) {
+    "use strict";
+    var myInstance = new MyModule();
+});```
