@@ -5,11 +5,16 @@ body {
 
 .highlight {
     border-radius: 4px;
-    padding: 12px 0;
+    padding: 0;
+    margin-bottom: 24px;
 
     pre {
         color: #333;
         border: 0 transparent;
+    }
+
+    .x {
+        color: whitesmoke;
     }
 }
 
