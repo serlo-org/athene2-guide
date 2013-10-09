@@ -9,6 +9,7 @@ body {
   .highlight pre {
     color: #333;
     border: 0 transparent; }
+  .highlight .text,
   .highlight .x {
     color: whitesmoke; }
 
