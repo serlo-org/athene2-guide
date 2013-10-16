@@ -64,10 +64,10 @@ Bietet die Möglichkeit für den Benutzer Statusmeldungen zu generieren:
 
 {% highlight javascript %}
 // your module
-define(['system_notifications'], function (SystemNotifications) {
-    SystemNotifications.notify('The force is strong with you');
+define(['system_notification'], function (SystemNotification) {
+    SystemNotification.notify('The force is strong with you');
     // or with specified status-level and html set to true
-    SystemNotifications.notify('The force is <strong>strong</strong> with you', 'success', true);
+    SystemNotification.notify('The force is <strong>strong</strong> with you', 'success', true);
 });
 {% endhighlight %}
 
