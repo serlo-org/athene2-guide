@@ -50,3 +50,30 @@ define("ATHENE2", ['jquery', 'referrer_history', 'my_module'], function ($, Refe
     var myInstance = new MyModule();
 });
 {% endhighlight %}
+
+## Common
+
+Das `common` Modul bietet einige Helfer Funktionen. Dazu schaut man am besten direkt in das Modul.
+Die Wichtigste ist wohl das `logging`:
+
+Anstatt direkt mit `console.log` zu arbeiten, gibt es `Common.log`. Dies ist ein Wrapper, der verhindert, dass es zu Fehlern kommt, wenn versehentlich ein `console.log` im Code bleibt.
+
+## System Notifications
+
+Bietet die Möglichkeit für den Benutzer Statusmeldungen zu generieren:
+
+{% highlight javascript %}
+// your module
+define(['system_notifications'], function (SystemNotifications) {
+    SystemNotifications.notify('The force is strong with you');
+    // or with specified status-level and html set to true
+    SystemNotifications.notify('The force is <strong>strong</strong> with you', 'success', true);
+});
+{% endhighlight %}
+
+Vorhandene Status Level: 
+
+* info (default)
+* success
+* warning
+* danger
