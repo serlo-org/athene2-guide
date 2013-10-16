@@ -78,3 +78,25 @@ Vorhandene Status Level:
 * warning
 * danger
 
+## String translation
+
+Das Translator (`source/scripts/modules/serlo_translator`) Modul ermöglicht es das interface Übersetzbar zu machen.
+
+{% highlight javascript %}
+// your module
+define(['translator'], function (t) {
+    "use strict";
+    // normaler string
+    t('Hello'); // => 'Hallo'
+    // string mit placeholdern
+    t('Hello %s', 'Athene'); // => 'Hallo Athene'
+    // string mit number
+    t('Since %d days', 2); // => 'Seit 2 Tagen'
+    // Kombinationen
+    t('Hello %s, you have %d new messages', 'Athene', 3); // => 'Hallo Athene, du hast 3 neue Nachrichten'
+});
+{% endhighlight %}
+
+Singular/Plural Unterstützung gibt es **nicht**.
+
+Die Übersetzungen dazu befinden sich in `source/lang/en_EN.js`. Diese Dateien werden von `grunt` automatisch zum `i18n` Modul konkatiniert.
