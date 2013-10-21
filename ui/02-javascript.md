@@ -78,6 +78,12 @@ Vorhandene Status Level:
 * warning
 * danger
 
+**Außerdem** ist es möglich einer Notification eine `uniqueID` zu geben, um "Massen-Notifications" zu verhindern:
+
+{% highlight javascript %}
+SystemNotification.notify('You typed the wrong answer <strong>again</strong>!', 'warning', true, 'wrong-answer');
+{% endhighlight %}
+
 ## String translation
 
 Das Translator (`source/scripts/modules/serlo_translator`) Modul ermöglicht es das interface Übersetzbar zu machen.
@@ -99,4 +105,31 @@ define(['translator'], function (t) {
 
 Singular/Plural Unterstützung gibt es **nicht**.
 
-Die Übersetzungen dazu befinden sich in `source/lang/en_EN.js`. Diese Dateien werden von `grunt` automatisch zum `i18n` Modul konkatiniert.
+Die Übersetzungen dazu befinden sich in `source/lang/en_EN.json`. Diese Dateien werden von `grunt` automatisch zum `i18n` Modul konkatiniert.
+
+### Update der Sprach-Dateien
+
+Der Grunt Task `grunt language-update` parst alle Javascript Dateien im Verzeichnis `source/scripts` nach Aufrufen der `t()` Funktion und erweitert automatisch alle `source/lang/language.json` um die fehlenden Strings.
+Dieser Task muss allerdings händisch ausgeführt werden.
+
+## Modals
+
+**Confirm**, **Alert** und **Notify** Modals können durch bestimmte HTML Klassen automatisch auf Links und Buttons gesetzt werden:
+
+{% highlight html %}
+<button class="dialog" href="/some/action" data-content="Do you really want to delete this item?" data-type="danger">Delete</button>
+{% endhighlight %}
+
+## TimeAgo Felder
+
+Um ein Datum im "Vor x"-Format darzustellen, reicht es aus, einem Tag die Klasse `.timeago` und als `title` Attribut ein valides Datum zu geben:
+
+{% highlight html %}
+<span class="timeago" title="Mon Oct 20 2013 12:25:20 GMT+0200 (CEST)">21.10.2013</span>
+{% endhighlight %}
+
+Wird automatisch zu (etwas ähnlichem wie):
+
+{% highlight html %}
+<span class="timeago" title="20.10.2013">Vor zwei Tagen</span>
+{% endhighlight %}
