@@ -1,9 +1,11 @@
 ---
 layout: section
-title: ClassResolver
-anchor: classresolver
+title: Entity
+anchor: entity
 group: 'modules'
 ---
+
+* Work in Progress *
 
 Events:
 * createEntity.preFlush (Entity\Service\EntityServiceInterface $entity, array $params)
