@@ -31,5 +31,5 @@ echo $classResolver->resolveClassName('FooInterface'); // 'Foo'
 ```php
 $classResolver = $serviceManager->get('ClassResolver\ClassResolver');
 
-$bar = $classResolver->resolve('BarInterface'); // äquivalent zu `$bar = new Bar();`
+$bar = $classResolver->resolve('BarInterface'); // äquivalent zu `$bar = $serviceLocator->get('Bar');`
 ```
