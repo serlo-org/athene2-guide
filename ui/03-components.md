@@ -36,7 +36,7 @@ Sortierbare Listen sind durch das jQuery Modul [Nestable](http://dbushell.github
 
 Beispiel Markup:
 
-{% hightlight html %}
+{% highlight html %}
 <!-- das Attribut data-action enthält die URL
     über die die neue Sortierung gespeichert werden kann -->
 <div class="sortable" data-action="/save/my/sort">
