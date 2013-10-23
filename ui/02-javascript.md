@@ -111,3 +111,4 @@ Die Übersetzungen dazu befinden sich in `source/lang/en_EN.json`. Diese Dateien
 
 Der Grunt Task `grunt language-update` parst alle Javascript Dateien im Verzeichnis `source/scripts` nach Aufrufen der `t()` Funktion und erweitert automatisch alle `source/lang/language.json` um die fehlenden Strings.
 Dieser Task muss allerdings händisch ausgeführt werden.
+

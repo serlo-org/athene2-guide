@@ -11,9 +11,9 @@ group: 'ui'
 
 ### Namenskonvention
 
-Klassen: .my-class
-IDs: #my-id
-Zustände: .is-active, .is-hovered, .is-hidden
+* Klassen: .my-class
+* IDs: #my-id
+* Zustände: .is-active, .is-hovered, .is-hidden
 
 
 
