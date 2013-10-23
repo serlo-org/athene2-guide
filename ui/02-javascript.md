@@ -111,25 +111,3 @@ Die Übersetzungen dazu befinden sich in `source/lang/en_EN.json`. Diese Dateien
 
 Der Grunt Task `grunt language-update` parst alle Javascript Dateien im Verzeichnis `source/scripts` nach Aufrufen der `t()` Funktion und erweitert automatisch alle `source/lang/language.json` um die fehlenden Strings.
 Dieser Task muss allerdings händisch ausgeführt werden.
-
-## Modals
-
-**Confirm**, **Alert** und **Notify** Modals können durch bestimmte HTML Klassen automatisch auf Links und Buttons gesetzt werden:
-
-{% highlight html %}
-<button class="dialog" href="/some/action" data-content="Do you really want to delete this item?" data-type="danger">Delete</button>
-{% endhighlight %}
-
-## TimeAgo Felder
-
-Um ein Datum im "Vor x"-Format darzustellen, reicht es aus, einem Tag die Klasse `.timeago` und als `title` Attribut ein valides Datum zu geben:
-
-{% highlight html %}
-<span class="timeago" title="Mon Oct 20 2013 12:25:20 GMT+0200 (CEST)">21.10.2013</span>
-{% endhighlight %}
-
-Wird automatisch zu (etwas ähnlichem wie):
-
-{% highlight html %}
-<span class="timeago" title="20.10.2013">Vor zwei Tagen</span>
-{% endhighlight %}
