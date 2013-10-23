@@ -20,7 +20,7 @@ Alle JS Dateien werden über grunt mit jshint geprüft.
 
 Eigene Module müssen mit requirejs eingebunden werden:
 
-{% highlight javascript %}
+```javascript
 /*global define*/
 define('myModule', ['jquery'], function ($) {
     "use strict";
@@ -28,28 +28,28 @@ define('myModule', ['jquery'], function ($) {
 
     return MyModule;
 });
-{% endhighlight %}
+```
 
 (siehe auch [http://requirejs.org/](http://requirejs.org/))
 
 Um module verwenden zu können müssen sie in der mainConfig (scripts/main.js) registriert werden:
 
-{% highlight javascript %}
+```javascript
 require.config({
     paths: {
         "myModule": "modules/my_module"
     }
 });
-{% endhighlight %}
+```
 
 Dann können sie z.B. in der Hauptapplikation (scripts/ATHENE2.js) verwendet werden:
 
-{% highlight javascript %}
+```javascript
 define("ATHENE2", ['jquery', 'referrer_history', 'my_module'], function ($, ReferrerHistory, MyModule) {
     "use strict";
     var myInstance = new MyModule();
 });
-{% endhighlight %}
+```
 
 ## Common
 
@@ -62,14 +62,14 @@ Anstatt direkt mit `console.log` zu arbeiten, gibt es `Common.log`. Dies ist ein
 
 Bietet die Möglichkeit für den Benutzer Statusmeldungen zu generieren:
 
-{% highlight javascript %}
+```javascript
 // your module
 define(['system_notification'], function (SystemNotification) {
     SystemNotification.notify('The force is strong with you');
     // or with specified status-level and html set to true
     SystemNotification.notify('The force is <strong>strong</strong> with you', 'success', true);
 });
-{% endhighlight %}
+```
 
 Vorhandene Status Level: 
 
@@ -80,15 +80,15 @@ Vorhandene Status Level:
 
 **Außerdem** ist es möglich einer Notification eine `uniqueID` zu geben, um "Massen-Notifications" zu verhindern:
 
-{% highlight javascript %}
+```javascript
 SystemNotification.notify('You typed the wrong answer <strong>again</strong>!', 'warning', true, 'wrong-answer');
-{% endhighlight %}
+```
 
 ## String translation
 
 Das Translator (`source/scripts/modules/serlo_translator`) Modul ermöglicht es das interface Übersetzbar zu machen.
 
-{% highlight javascript %}
+```javascript
 // your module
 define(['translator'], function (t) {
     "use strict";
@@ -101,7 +101,7 @@ define(['translator'], function (t) {
     // Kombinationen
     t('Hello %s, you have %d new messages', 'Athene', 3); // => 'Hallo Athene, du hast 3 neue Nachrichten'
 });
-{% endhighlight %}
+```
 
 Singular/Plural Unterstützung gibt es **nicht**.
 

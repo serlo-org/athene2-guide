@@ -12,24 +12,24 @@ group: 'ui'
 
 **Confirm**, **Alert** und **Notify** Modals können durch bestimmte HTML Klassen automatisch auf Links und Buttons gesetzt werden:
 
-{% highlight html %}
+```html
 <button class="dialog" href="/some/action" data-content="Do you really want to delete this item?" data-type="danger">Delete</button>
-{% endhighlight %}
+```
 
 
 ## TimeAgo Felder
 
 Um ein Datum im "Vor x"-Format darzustellen, reicht es aus, einem Tag die Klasse `.timeago` und als `title` Attribut ein valides Datum zu geben:
 
-{% highlight html %}
+```html
 <span class="timeago" title="Mon Oct 20 2013 12:25:20 GMT+0200 (CEST)">21.10.2013</span>
-{% endhighlight %}
+```
 
 Wird automatisch zu (etwas ähnlichem wie):
 
-{% highlight html %}
+```html
 <span class="timeago" title="20.10.2013">Vor zwei Tagen</span>
-{% endhighlight %}
+```
 
 
 ## Sortable List
@@ -38,16 +38,16 @@ Sortierbare Listen sind durch das jQuery Modul [Nestable](http://dbushell.github
 
 List Optionen
 
-    * `data-action` Attribut (required): die URL für das Speichern der Sortierung
-    * `data-depth` Attribut: Die maximale tiefe einer Verschachtelten Liste (default: 0)
+* `data-action` Attribut (required): die URL für das Speichern der Sortierung
+* `data-depth` Attribut: Die maximale tiefe einer Verschachtelten Liste (default: 0)
 
 Item Option
 
-    * `data-id` Attribut (required): die ID des jeweiligen Inhaltes
+* `data-id` Attribut (required): die ID des jeweiligen Inhaltes
 
 Beispiel Markup:
 
-{% highlight html %}
+```html
 <!-- das Attribut data-action enthält die URL
     über die die neue Sortierung gespeichert werden kann -->
 <div class="sortable" data-action="/save/my/sort" data-depth="5">
@@ -81,6 +81,6 @@ Beispiel Markup:
         </button>
     </div>
 </div>
-{% endhighlight %}
+```
 
 tbd.
