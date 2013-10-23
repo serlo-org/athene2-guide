@@ -5,6 +5,8 @@ anchor: components
 group: 'ui'
 ---
 
+> Ready to use functionalities
+
 
 ## Modals
 
