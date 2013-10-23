@@ -34,14 +34,23 @@ Wird automatisch zu (etwas ähnlichem wie):
 
 ## Sortable List
 
-Sortierbare Listen sind durch das jQuery Modul [Nestable](http://dbushell.github.io/Nestable/) ermöglicht und können verschachtelt sein.
+Sortierbare Listen sind durch das jQuery Modul [Nestable](http://dbushell.github.io/Nestable/) ermöglicht.
+
+List Optionen
+
+    * `data-action` Attribut (required): die URL für das Speichern der Sortierung
+    * `data-depth` Attribut: Die maximale tiefe einer Verschachtelten Liste (default: 0)
+
+Item Option
+
+    * `data-id` Attribut (required): die ID des jeweiligen Inhaltes
 
 Beispiel Markup:
 
 {% highlight html %}
 <!-- das Attribut data-action enthält die URL
     über die die neue Sortierung gespeichert werden kann -->
-<div class="sortable" data-action="/save/my/sort">
+<div class="sortable" data-action="/save/my/sort" data-depth="5">
     <ol class="sortable-list">
         <!-- das data-id Attribut enthält die ID des jeweiligen Inhaltes -->
         <li class="sortable-item" data-id="1">
@@ -74,3 +83,4 @@ Beispiel Markup:
 </div>
 {% endhighlight %}
 
+tbd.
