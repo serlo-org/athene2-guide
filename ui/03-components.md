@@ -7,6 +7,66 @@ group: 'ui'
 
 > Ready to use functionalities
 
+## Overlay
+
+Alle Links mit der Klasse `.ajax-content` öffnen sich in einem Overlay. Wenn sich im geladenen Inhalt wieder `.ajax-content` Links befinden öffnen sich diese bei Klick im selben Overlay als neues Tab.
+
+Alle verfügbaren Optionen können im Modul `ATHENE2` während der Instanzierung des AjaxOverlays übergeben werden:
+
+```javascript
+{
+    // die Klasse auf die das Overlay angewandt werden soll
+    linkClass: 'ajax-content',
+    // Elemente die das Overlay schließen
+    closeClass: 'close-overlay',
+    // Standard Context für das initialisieren der .linkClass
+    context: 'body',
+    // active body class
+    overlayActiveClass: 'ajax-content-active',
+    // der Inhalt Selector, nach dem in per ajax geladenen Inhalt gesucht wird
+    ajaxContentSelector: '#content-container',
+    // der Selector der dem Tab den Titel gibt
+    titleSelector: '#pagetitle',
+    // Klasse für das aktive Tab
+    activeTabClass: 'active',
+    // Wie viele Tabs maximal dargestellt werden sollen
+    tabLimit: 5,
+    // Callbacks
+    on: {
+        // Wenn neuer Inhalt geladen wurde
+        contentLoaded: function (AjaxOverlayInstance) {
+            // 'this' is the AjaxPage instance
+        },
+        // Wenn eine AjaxPage (tab) geöffnet wurde
+        contentOpened: function (AjaxOverlayInstance) {
+            // 'this' is the AjaxPage instance
+        },
+        // Wenn ein Ajax Fehler auftritt
+        error: function () {
+            // 'this' is the AjaxOverlay instance,
+            // arguments are all the arguments from jQuery.ajax.error
+        },
+        // Bevor das Overlay geschlossen wird
+        beforeClose: function () {
+            // 'this' is the AjaxOverlay instance
+        },
+        // Nachdem das Overlay geschlossen wurde
+        afterClose: function () {
+            // 'this' is the AjaxOverlay instance
+        },
+        // Bevor das Overlay geöffnet wird
+        beforeOpen: function () {
+            // 'this' is the AjaxOverlay instance
+        },
+        // Nachdem das Overlay geöffnet wurde
+        afterOpen: function () {
+            // gets called right after the AjaxOverlay has been opened
+            // 'this' is the AjaxOverlay instance
+        }
+    }
+}
+```
+
 
 ## Modals
 
