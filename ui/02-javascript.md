@@ -51,6 +51,43 @@ define("ATHENE2", ['jquery', 'referrer_history', 'my_module'], function ($, Refe
 });
 ```
 
+## Events
+
+Das `events` Modul erweitert Objekte und Klassen um die Funktionen
+
+* addEventListener(eventName, callback)
+* trigger(eventName, data[, moreData])
+
+und gibt ihnen einen eigenen `eventScope`:
+
+```javascript
+define(['events'], function (eventScope) {
+    var myObject = {
+        name: 'Athene'
+    };
+    
+    // Give the Object/Class an event scope
+    eventScope(myObject);
+    
+    // Add an event listener
+    myObject.addEventListener('name changed', function (data) {
+        console.log('Name changed to: ' + data);
+    });
+    
+    // define, when to trigger what kind of events
+    myObject.changeName = function (newName) {
+        if (this.name !== newName) {
+            this.name = newName;
+            this.trigger('name changed', this.name);
+        }
+    };
+    
+    // calling the function will log
+    // "Name changed to: Athene2"
+    myObject.changeName('Athene2');
+});
+```
+
 ## Common
 
 Das `common` Modul bietet einige Helfer Funktionen. Dazu schaut man am besten direkt in das Modul.
