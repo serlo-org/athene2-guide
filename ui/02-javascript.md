@@ -95,6 +95,8 @@ Die Wichtigste ist wohl das `logging`:
 
 Anstatt direkt mit `console.log` zu arbeiten, gibt es `Common.log`. Dies ist ein Wrapper, der verhindert, dass es zu Fehlern kommt, wenn versehentlich ein `console.log` im Code bleibt.
 
+Außerdem hat hat das Common Objekt einen EventScope, über den es möglich ist zwischen verschiedenen Modulen zu kommunizieren.
+
 ## System Notifications
 
 Bietet die Möglichkeit für den Benutzer Statusmeldungen zu generieren:
