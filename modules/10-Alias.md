@@ -13,7 +13,7 @@ Das Alias Modul dient dazu, Urls schöner zu machen. So wird beispielsweise aus 
 * Fallbacks: Fallbacks garantieren, dass es nicht zu Problemen bei der Aliasvergabe kommt.
 * AutoAlias: Per Konfiguration kann man bequem Autoaliasing benutzen.
 * Listeners: Listener ermöglichen es mittels Autoaliasing, einfach Aliases zu erstellen.
-* UrlGenerating: Der Url ViewHelper checkt, ob für die Url ein Alias existiert und gibt diese aus.
+* UrlGenerating: Der Url ViewHelper checkt, ob für die Url ein Alias existiert und gibt diese aus, falls vorhanden.
 * Aliases veralten nicht: Es können mehrere Aliases für eine Url angelegt werden, damit schafft man es, dass beispielsweise Änderungen im Titel keine Auswirkung auf die Auffindbarkeit haben.
 
 ### Aliases erstellen
