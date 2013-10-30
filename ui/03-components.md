@@ -114,11 +114,11 @@ Beispiel Markup:
     <ol class="sortable-list">
         <!-- das data-id Attribut enthält die ID des jeweiligen Inhaltes -->
         <li class="sortable-item" data-id="1">
+            <!-- das element, das dem Benutzer das Draggen erlaubt -->
+            <span class="sortable-handle">
+                <i class="glyphicon glyphicon-resize-vertical"></i>
+            </span>
             <div class="sortable-item-inner">
-                <!-- das element, das dem Benutzer das Draggen erlaubt -->
-                <span class="sortable-handle">
-                    <i class="glyphicon glyphicon-resize-vertical"></i>
-                </span>
                 <!-- Inhalt des jeweiligen Items -->
                 Sortable Item No. 1!
             </div>

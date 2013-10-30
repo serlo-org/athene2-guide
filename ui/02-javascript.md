@@ -16,6 +16,12 @@ group: 'ui'
 
 Alle JS Dateien werden über grunt mit jshint geprüft.
 
+### Testing
+
+Um [jasmine](http://pivotal.github.io/jasmine/) Tests durchzuführen, muss der Grunt Task `grunt test` ausgeführt werden.
+Dieser Task fügt dem build das Jasmine Framework und alle Tests hinzu, welche dann bei Aufruf der Seite am unteren Rand sichtbar werden.
+Nach dem erfolgreichen Testen muss noch einmal der `grunt build` Befehl ausgeführt werden, um das Jasmine Framework wieder aus dem Build zu entfernen.
+
 ### JS Module
 
 Eigene Module müssen mit requirejs eingebunden werden:
