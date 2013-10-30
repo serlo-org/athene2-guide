@@ -16,6 +16,12 @@ group: 'ui'
 
 Alle JS Dateien werden über grunt mit jshint geprüft.
 
+### Testing
+
+Um [jasmine](http://pivotal.github.io/jasmine/) Tests durchzuführen, muss der Grunt Task `grunt test` ausgeführt werden.
+Dieser Task fügt dem build das Jasmine Framework und alle Tests hinzu, welche dann bei Aufruf der Seite am unteren Rand sichtbar werden.
+Nach dem erfolgreichen Testen muss noch einmal der `grunt build` Befehl ausgeführt werden, um das Jasmine Framework wieder aus dem Build zu entfernen.
+
 ### JS Module
 
 Eigene Module müssen mit requirejs eingebunden werden:
@@ -51,12 +57,51 @@ define("ATHENE2", ['jquery', 'referrer_history', 'my_module'], function ($, Refe
 });
 ```
 
+## Events
+
+Das `events` Modul erweitert Objekte und Klassen um die Funktionen
+
+* addEventListener(eventName, callback)
+* trigger(eventName, data[, moreData])
+
+und gibt ihnen einen eigenen `eventScope`:
+
+```javascript
+define(['events'], function (eventScope) {
+    var myObject = {
+        name: 'Athene'
+    };
+    
+    // Give the Object/Class an event scope
+    eventScope(myObject);
+    
+    // Add an event listener
+    myObject.addEventListener('name changed', function (data) {
+        console.log('Name changed to: ' + data);
+    });
+    
+    // define, when to trigger what kind of events
+    myObject.changeName = function (newName) {
+        if (this.name !== newName) {
+            this.name = newName;
+            this.trigger('name changed', this.name);
+        }
+    };
+    
+    // calling the function will log
+    // "Name changed to: Athene2"
+    myObject.changeName('Athene2');
+});
+```
+
 ## Common
 
 Das `common` Modul bietet einige Helfer Funktionen. Dazu schaut man am besten direkt in das Modul.
 Die Wichtigste ist wohl das `logging`:
 
 Anstatt direkt mit `console.log` zu arbeiten, gibt es `Common.log`. Dies ist ein Wrapper, der verhindert, dass es zu Fehlern kommt, wenn versehentlich ein `console.log` im Code bleibt.
+
+Außerdem hat hat das Common Objekt einen EventScope, über den es möglich ist zwischen verschiedenen Modulen zu kommunizieren.
 
 ## System Notifications
 
