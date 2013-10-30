@@ -79,6 +79,7 @@ $repositoryService->getRevision(2);
 $repositoryService->checkoutRevision(2);
 
 // Falls die Änderungen in die Datenbank geschrieben werden sollen
+$entityManager->persist($repositoryService->getRepository());
 $entityManager->flush();
 ```
 
