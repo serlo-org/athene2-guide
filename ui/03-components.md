@@ -105,6 +105,7 @@ Item Option
 
 * `data-id` Attribut (required): die ID des jeweiligen Inhaltes
 
+
 Beispiel Markup:
 
 ```html
@@ -115,9 +116,7 @@ Beispiel Markup:
         <!-- das data-id Attribut enthält die ID des jeweiligen Inhaltes -->
         <li class="sortable-item" data-id="1">
             <!-- das element, das dem Benutzer das Draggen erlaubt -->
-            <span class="sortable-handle">
-                <i class="glyphicon glyphicon-resize-vertical"></i>
-            </span>
+            <span class="sortable-handle"></span>
             <div class="sortable-item-inner">
                 <!-- Inhalt des jeweiligen Items -->
                 Sortable Item No. 1!
@@ -143,4 +142,15 @@ Beispiel Markup:
 </div>
 ```
 
-tbd.
+**Das Handle** kann entweder ein eigenes `span` Element sein (siehe oben), oder mit dem gesamten Listen Inhalt verknüpft sein:
+
+```html
+...
+<li class="sortable-item" data-id="1">
+    <div class="sortable-item-inner sortable-handle">
+        ...
+    </div>
+</li>
+...
+```
+In beiden Fällen muss der `.sortable-handle` allerdings ein direktes Child des `.sortable-item`s sein.
