@@ -100,6 +100,7 @@ List Optionen
 
 * `data-action` Attribut (required): die URL für das Speichern der Sortierung
 * `data-depth` Attribut: Die maximale tiefe einer Verschachtelten Liste (default: 0)
+* `data-active`: Wenn auf `false` gesetzt, muss der Benutzer das Sortieren erst aktivieren (default: `true`)
 
 Item Option
 
@@ -111,7 +112,23 @@ Beispiel Markup:
 ```html
 <!-- das Attribut data-action enthält die URL
     über die die neue Sortierung gespeichert werden kann -->
-<div class="sortable" data-action="/save/my/sort" data-depth="5">
+<div class="sortable" data-action="/save/my/sort" data-depth="5" data-active="false">
+    <div class="sortable-actions">
+        <!-- (Optional) Button um das Sortieren zu aktivieren -->
+        <!-- Nur wichtig wenn data-active="false" -->
+        <button class="btn btn-success sortable-activate-action">
+            Sortieren
+        </button>
+        <!-- ein Link oder Button, der die aktion "Speichern" auslöst -->
+        <!-- wichtig sind die Klassen .sortable-save-action und .is-hidden -->
+        <button class="btn btn-success sortable-save-action is-hidden">
+            Reihenfolge speichern
+        </button>
+        <!-- Ein Button um alle Änderungen rückgängig zu machen -->
+        <button class="btn btn-success sortable-abort-action is-hidden">
+            Abbrechen
+        </button>
+    </div>
     <ol class="sortable-list">
         <!-- das data-id Attribut enthält die ID des jeweiligen Inhaltes -->
         <li class="sortable-item" data-id="1">
@@ -132,13 +149,6 @@ Beispiel Markup:
             ...
         </li>
     </ol>
-    <div class="sortable-actions">
-        <!-- ein Link oder Button, der die aktion "Speichern" auslöst -->
-        <!-- wichtig sind die Klassen .sortable-save-action und .is-hidden -->
-        <button class="btn btn-success sortable-save-action is-hidden">
-            Reihenfolge speichern
-        </button>
-    </div>
 </div>
 ```
 
