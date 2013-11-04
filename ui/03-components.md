@@ -74,12 +74,28 @@ Alle verfügbaren Optionen können im Modul `ATHENE2` während der Instanzierung
 
 Optionen: 
 
-* `data-type` Attribut: `primary` (default), `warning`, `info`, `danger`
+* `data-type` Attribut: `primary` (default), `success`, `warning`, `info`, `danger`
 * `data-title` Attribut (optional): Titel des Modals
+* `data-label` Attribut (optional): Titel des Okay Buttons
+* `data-cancel` Attribut (optional): "false", wenn kein Close Button dargestellt werden soll
 
 
 ```html
 <button class="dialog" href="/some/action" data-content="Do you really want to delete this item?" data-title="Heads up!" data-type="danger">Delete</button>
+```
+
+Ein Modal kann auch per Javascript erstellt werden:
+
+```javascript
+// Modal.show(options[, uid]);
+Modal.show({
+    type: 'primary' || 'success' || 'warning' || 'info'
+    title: 'Title', // Titel des Modals
+    content: '', // Inhalt des Modals
+    href: '' // target url for okay button (optional),
+    cancel: true, // (optional)
+    label: 'Okay' // (optional)
+});
 ```
 
 ## Datepicker
