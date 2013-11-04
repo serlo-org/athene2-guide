@@ -76,6 +76,25 @@ Alle verfügbaren Optionen können im Modul `ATHENE2` während der Instanzierung
 <button class="dialog" href="/some/action" data-content="Do you really want to delete this item?" data-type="danger">Delete</button>
 ```
 
+## Datepicker
+
+Ein Datepicker lässt sich durch folgendes Markup initialisieren:
+
+```html
+<input type="text" class="datepicker form-control" />
+```
+
+Eine Daterange wie folgt:
+
+```html
+<div class="input-daterange input-group">
+    <input type="text" class="form-control" name="start" />
+    <span class="input-group-addon">to</span>
+    <input type="text" class="form-control" name="end" />
+</div>
+```
+
+(siehe auch [https://github.com/eternicode/bootstrap-datepicker](https://github.com/eternicode/bootstrap-datepicker))
 
 ## TimeAgo Felder
 
