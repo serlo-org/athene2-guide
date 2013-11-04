@@ -72,8 +72,14 @@ Alle verfügbaren Optionen können im Modul `ATHENE2` während der Instanzierung
 
 **Confirm**, **Alert** und **Notify** Modals können durch bestimmte HTML Klassen automatisch auf Links und Buttons gesetzt werden:
 
+Optionen: 
+
+* `data-type` Attribut: `primary` (default), `warning`, `info`, `danger`
+* `data-title` Attribut (optional): Titel des Modals
+
+
 ```html
-<button class="dialog" href="/some/action" data-content="Do you really want to delete this item?" data-type="danger">Delete</button>
+<button class="dialog" href="/some/action" data-content="Do you really want to delete this item?" data-title="Heads up!" data-type="danger">Delete</button>
 ```
 
 ## Datepicker
