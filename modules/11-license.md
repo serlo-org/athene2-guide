@@ -5,7 +5,7 @@ anchor: license
 group: 'modules'
 ---
 
-Einige Inhalte benötigen Lizenzen, unter denen sie Veröffentlicht wurden. Standardmäßig sollte die (cc-by-sa)[http://creativecommons.org/licenses/by-sa/3.0/de/]
+Einige Inhalte benötigen Lizenzen, unter denen sie Veröffentlicht wurden. Standardmäßig sollte die [cc-by-sa](http://creativecommons.org/licenses/by-sa/3.0/de/)
 
 ## Konfiguration
 
