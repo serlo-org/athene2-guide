@@ -72,10 +72,51 @@ Alle verfügbaren Optionen können im Modul `ATHENE2` während der Instanzierung
 
 **Confirm**, **Alert** und **Notify** Modals können durch bestimmte HTML Klassen automatisch auf Links und Buttons gesetzt werden:
 
+Optionen: 
+
+* `data-type` Attribut: `primary` (default), `success`, `warning`, `info`, `danger`
+* `data-title` Attribut (optional): Titel des Modals
+* `data-label` Attribut (optional): Titel des Okay Buttons
+* `data-cancel` Attribut (optional): "false", wenn kein Close Button dargestellt werden soll
+
+
 ```html
-<button class="dialog" href="/some/action" data-content="Do you really want to delete this item?" data-type="danger">Delete</button>
+<button class="dialog" href="/some/action" data-content="Do you really want to delete this item?" data-title="Heads up!" data-type="danger">Delete</button>
 ```
 
+Ein Modal kann auch per Javascript erstellt werden:
+
+```javascript
+// Modal.show(options[, uid]);
+Modal.show({
+    type: 'primary' || 'success' || 'warning' || 'info'
+    title: 'Title', // Titel des Modals
+    content: '', // Inhalt des Modals
+    href: '' // target url for okay button (optional),
+    cancel: true, // (optional)
+    label: 'Okay' // (optional)
+});
+```
+
+## Datepicker
+
+Ein Datepicker lässt sich durch folgendes Markup initialisieren:
+
+```html
+<input type="text" class="datepicker form-control" />
+```
+
+Eine Daterange wie folgt:
+
+```html
+<div class="input-daterange input-group">
+    <input type="text" class="form-control" name="start" />
+    <span class="input-group-addon">to</span>
+    <input type="text" class="form-control" name="end" />
+</div>
+```
+
+(siehe auch [https://github.com/eternicode/bootstrap-datepicker](https://github.com/eternicode/bootstrap-datepicker))
 
 ## TimeAgo Felder
 
@@ -100,6 +141,7 @@ List Optionen
 
 * `data-action` Attribut (required): die URL für das Speichern der Sortierung
 * `data-depth` Attribut: Die maximale tiefe einer Verschachtelten Liste (default: 0)
+* `data-active`: Wenn auf `false` gesetzt, muss der Benutzer das Sortieren erst aktivieren (default: `true`)
 
 Item Option
 
@@ -111,7 +153,23 @@ Beispiel Markup:
 ```html
 <!-- das Attribut data-action enthält die URL
     über die die neue Sortierung gespeichert werden kann -->
-<div class="sortable" data-action="/save/my/sort" data-depth="5">
+<div class="sortable" data-action="/save/my/sort" data-depth="5" data-active="false">
+    <div class="sortable-actions">
+        <!-- (Optional) Button um das Sortieren zu aktivieren -->
+        <!-- Nur wichtig wenn data-active="false" -->
+        <button class="btn btn-success sortable-activate-action">
+            Sortieren
+        </button>
+        <!-- ein Link oder Button, der die aktion "Speichern" auslöst -->
+        <!-- wichtig sind die Klassen .sortable-save-action und .is-hidden -->
+        <button class="btn btn-success sortable-save-action is-hidden">
+            Reihenfolge speichern
+        </button>
+        <!-- Ein Button um alle Änderungen rückgängig zu machen -->
+        <button class="btn btn-success sortable-abort-action is-hidden">
+            Abbrechen
+        </button>
+    </div>
     <ol class="sortable-list">
         <!-- das data-id Attribut enthält die ID des jeweiligen Inhaltes -->
         <li class="sortable-item" data-id="1">
@@ -132,13 +190,6 @@ Beispiel Markup:
             ...
         </li>
     </ol>
-    <div class="sortable-actions">
-        <!-- ein Link oder Button, der die aktion "Speichern" auslöst -->
-        <!-- wichtig sind die Klassen .sortable-save-action und .is-hidden -->
-        <button class="btn btn-success sortable-save-action is-hidden">
-            Reihenfolge speichern
-        </button>
-    </div>
 </div>
 ```
 
