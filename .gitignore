@@ -3,3 +3,4 @@ sass-cache
 .project
 *.sublime-project
 *.sublime-workspace
+*.settings
