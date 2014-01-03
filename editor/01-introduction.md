@@ -23,6 +23,12 @@ npm install
 
 * [pm2](http://devo.ps/blog/2013/06/26/goodbye-node-forever-hello-pm2.html) um den node server am Laufen zu halten
 
+pm2 installation:
+
+````
+[sudo] npm -g install pm2
+````
+
 ### Get it running
 
 Mit **pm2** (empfohlen):
