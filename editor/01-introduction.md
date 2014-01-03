@@ -27,11 +27,29 @@ npm install
 
 Mit **pm2** (empfohlen):
 
-Server starten: `pm2 start src/modules/Ui/assets/node_modules/athene2-editor/server/server.js`
-Server beenden: `pm2 dump && pm2 kill`
+Server starten:
+
+````
+pm2 start src/modules/Ui/assets/node_modules/athene2-editor/server/server.js
+````
+
+Server beenden:
+
+````
+pm2 dump && pm2 kill
+````
 
 Ohne pm2:
 
-Starten `node src/modules/Ui/assets/node_modules/athene2-editor/server/server.js`
-Beenden: `ctrl+c`
+Starten:
+
+````
+node src/modules/Ui/assets/node_modules/athene2-editor/server/server.js
+````
+
+Beenden:
+
+````
+ctrl+c
+````
 
