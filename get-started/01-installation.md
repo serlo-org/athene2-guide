@@ -22,6 +22,18 @@ group: 'getstarted'
 * Upload database dump to [phpMyAdmin](http://127.0.0.1:4567/phpmyadmin)
 * Open [athene2](http://127.0.0.1:4567)
 
+### Known issues
+
+#### Composer installation fails with timeout
+
+Sometimes, composer installations fail. In this case, you need to execute composer manually:
+
+* `cd /path/to/athene2/vagrant`
+* `vagrant ssh`
+* `cd /var/www/`
+* `php composer.phar install`
+* `php composer.phar update`
+
 ### Run tests
 
 * `cd /path/to/athene2/`
