@@ -20,13 +20,11 @@ group: 'getstarted'
 * `copy config/autoload/local.php.dist config/autoload/local.php` (Windows)
 * Open [athene2](http://localhost:4567)
 
-## Update installation
-
-### Phpmyadmin
+## Update Database
 
 Dump into [phpMyAdmin](http://localhost:4567/phpmyadmin)
 
-### With ssh
+## Login with ssh
 
 Do you want to update the composer, npm, bower, ... installation? Just connect via ssh!
 
@@ -35,19 +33,19 @@ Do you want to update the composer, npm, bower, ... installation? Just connect v
 * `cd /var/www/`
 * Do whatever you like - e.g. `php composer.phar update`
 
-### With provisioning
+## Update vm with provisioning
 
-**This is the easiest way.**
+*This is the easiest way to update composer, the database, npm, ...*
 
 However it is not really recommended because it *might* cause some trouble. You can still try it of course - if it doesn't work please refer to section `Provisioning fails`
 
 * `cd vagrant/`
 * `vagrant provision`
 
-### Known issues
+## Known issues
 Vagrant is superb. But, sometimes provisioning fails. Here are some guides how you can reset your workstation.
 
-#### Provisioning fails
+### Provisioning fails
 
 Sometimes vagrant fails provisioning because some package 404s or because of some other issue.
 You'll recognize errors simply because either an error is shown in the console or the website doesn't work.
@@ -60,16 +58,16 @@ In those cases, follow these steps to freshly install your vagrant copy:
 * `vagrant destroy`
 * `vagrant up`
 
-#### This doesn't help
+### This doesn't help
 
 If the guide above doesn't help, remove the project directory, start with a fresh copy from git and follow the steps
 described in 'Installation'.
 
-#### I've got some other problem
+### I've got some other problem
 
 You can access vagrant via `cd vagrant/ && vagrant ssh` for manual setup.
 
-#### I want to run `grunt dev` for realtime compiling
+### I want to run `grunt dev` for realtime compiling
 
 * `cd /vagrant`
 * `vagrant ssh`
@@ -91,7 +89,7 @@ Great! Vagrant enables per default:
 
 ## Run tests
 
-#### From local
+### From local
 
 * `cd /path/to/athene2/`
 * `phpunit` (without coverage)
