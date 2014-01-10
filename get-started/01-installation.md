@@ -5,12 +5,12 @@ anchor: installation
 group: 'getstarted'
 ---
 
-### Requirements
+## Requirements
 
 * [Vagrant](http://www.vagrantup.com/)
 * [VirtualBox](https://www.virtualbox.org/)
 
-### Installation
+## Installation
 
 * `vagrant box add precise32 http://files.vagrantup.com/precise32.box`
 * `git pull https://github.com/serlo-org/athene2.git`
@@ -20,13 +20,13 @@ group: 'getstarted'
 * `copy config/autoload/local.php.dist config/autoload/local.php` (Windows)
 * Open [athene2](http://localhost:4567)
 
-### Update installation
+## Update installation
 
-#### Phpmyadmin
+### Phpmyadmin
 
 Dump into [phpMyAdmin](http://localhost:4567/phpmyadmin)
 
-#### With ssh
+### With ssh
 
 Do you want to update the composer, npm, bower, ... installation? Just connect via ssh!
 
@@ -35,7 +35,7 @@ Do you want to update the composer, npm, bower, ... installation? Just connect v
 * `cd /var/www/`
 * Do whatever you like - e.g. `php composer.phar update`
 
-#### With provisioning
+### With provisioning
 
 **This is the easiest way.**
 
@@ -76,7 +76,7 @@ You can access vagrant via `cd vagrant/ && vagrant ssh` for manual setup.
 * `cd /var/www/src/module/Ui/assets`
 * `grunt dev`
 
-### It works!
+## It works!
 
 Great! Vagrant enables per default:
 
@@ -89,7 +89,7 @@ Great! Vagrant enables per default:
 * [phpMyAdmin](http://localhost:4567/phpmyadmin)
 * [athene2](http://localhost:4567)
 
-### Run tests
+## Run tests
 
 #### From local
 
