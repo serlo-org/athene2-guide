@@ -13,7 +13,7 @@ group: 'getstarted'
 ## Installation
 
 * `vagrant box add precise32 http://files.vagrantup.com/precise32.box`
-* `git pull https://github.com/serlo-org/athene2.git`
+* `git clone https://github.com/serlo-org/athene2.git`
 * `cd vagrant/`
 * `vagrant up`
 * `cp config/autoload/local.php.dist config/autoload/local.php` (Linux)
