@@ -92,6 +92,11 @@ Great! Vagrant enables per default:
 * [phpMyAdmin](http://localhost:4567/phpmyadmin)
 * [athene2](http://localhost:4567)
 
+## Known issues
+
+* After booting, the vm takes some time until all scripts are initialized.
+This may take up to 10 minutes - the env won't be working during this time.
+
 ## Run tests
 
 ### From local
