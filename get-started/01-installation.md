@@ -22,7 +22,12 @@ group: 'getstarted'
 
 ## Update Database
 
-Dump into [phpMyAdmin](http://localhost:4567/phpmyadmin)
+* **phpmyadmin**
+ * Dump into [phpMyAdmin](http://localhost:4567/phpmyadmin)
+* **via ssh**
+ * `cd /vagrant`
+ * `vagrant ssh`
+ * `sh updatedb.sh`
 
 ## Login with ssh
 
