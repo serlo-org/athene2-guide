@@ -38,16 +38,17 @@ Do you want to update the composer, npm, bower, ... installation? Just connect v
 * `cd /var/www/`
 * Do whatever you like - e.g. `php composer.phar update`
 
-## Update vm with provisioning
+## Update vm installation
 
-*This is the easiest way to update composer, the database, npm, ...*
+Unfortunately it is not possible to update the vm with a command.
+`vagrant provision` would duplicate some settings and that could lead to fatal errors.
+The only option currently available is to reset the whole vm.
 
-However it is not really recommended because it *might* cause some trouble. You can still try it of course - if it doesn't work please refer to section `Provisioning fails`
+* `cd /vagrant`
+* `vagrant destroy`
+* `vagrant up`
 
-* `cd vagrant/`
-* `vagrant provision`
-
-## Known issues
+## Cookbook
 Vagrant is superb. But also very fragile. Here are some guides how you can reset your workstation.
 
 ### FileAsset.php throws a fatal
@@ -63,16 +64,11 @@ Sometimes vagrant fails provisioning because some package 404s or because of som
 You'll recognize errors simply because either an error is shown in the console or the website doesn't work.
 In those cases, follow these steps to freshly install your vagrant copy:
 
-* Remove all **folders** in the root directory beginning with `.` (except your workspace/IDE folders of course)
-* Remove all contents of `src/vendor/*` (except `.gitignore`)
-* Remove all contents of `src/module/Ui/assets/node_modules` and `src/modules/Ui/assets/source/bower_components`.
-* `cd /vagrant`
-* `vagrant destroy`
-* `vagrant up`
+To reset the vm please refer to *Update vm installation*
 
-### This doesn't help
+**This doesn't help**
 
-If the guide above doesn't help, remove the project directory, start with a fresh copy from git and follow the steps
+Remove the project directory, start with a fresh copy from git and follow the steps
 described in 'Installation'.
 
 ### I've got some other problem
