@@ -48,7 +48,14 @@ However it is not really recommended because it *might* cause some trouble. You 
 * `vagrant provision`
 
 ## Known issues
-Vagrant is superb. But, sometimes provisioning fails. Here are some guides how you can reset your workstation.
+Vagrant is superb. But also very fragile. Here are some guides how you can reset your workstation.
+
+### FileAsset.php throws a fatal
+npm and bower are very fragile because of the shared folder system (vboxfs). If you run into fatals thrown by FileAsset, here's how you solve that:
+
+* `cd /vagrant`
+* `vagrant ssh`
+* `sh uicleaner.sh`
 
 ### Provisioning fails
 
@@ -79,6 +86,11 @@ You can access vagrant via `cd vagrant/ && vagrant ssh` for manual setup.
 * `cd /var/www/src/module/Ui/assets`
 * `grunt dev`
 
+### Slow on startup
+
+* After booting, the vm takes some time until all scripts are initialized.
+This may take up to 10 minutes - the env won't be working during this time.
+
 ## It works!
 
 Great! Vagrant enables per default:
@@ -91,11 +103,6 @@ Great! Vagrant enables per default:
 * Sphinx Search (used for fulltext search - updates every minute)
 * [phpMyAdmin](http://localhost:4567/phpmyadmin)
 * [athene2](http://localhost:4567)
-
-## Known issues
-
-* After booting, the vm takes some time until all scripts are initialized.
-This may take up to 10 minutes - the env won't be working during this time.
 
 ## Run tests
 
