@@ -4,6 +4,7 @@ title: Installation
 anchor: installation
 group: 'getstarted'
 ---
+http://www.microsoft.com/en-us/download/confirmation.aspx?id=2391
 
 ## Requirements
 
