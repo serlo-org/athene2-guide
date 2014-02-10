@@ -4,22 +4,111 @@ title: Installation
 anchor: installation
 group: 'getstarted'
 ---
+http://www.microsoft.com/en-us/download/confirmation.aspx?id=2391
 
-### Anforderungen
+## Requirements
 
-* PHP 5.4+
-* Mysql 5.5+
+* [Vagrant](http://www.vagrantup.com/)
+* [VirtualBox](https://www.virtualbox.org/)
 
-### Installation
+## Installation
 
-* `git pull https://github.com/serlo-org/athene2.git`
-* `cd src/`
-* `php composer.phar install`
+* `vagrant box add precise32 http://files.vagrantup.com/precise32.box`
+* `git clone https://github.com/serlo-org/athene2.git`
+* `cd vagrant/`
+* `vagrant up`
 * `cp config/autoload/local.php.dist config/autoload/local.php` (Linux)
 * `copy config/autoload/local.php.dist config/autoload/local.php` (Windows)
-* Bearbeite `config/autoload/local.php`
+* Open [athene2](http://localhost:4567)
 
-### Tests
+## Update Database
 
-* `cd src/test/AtheneTest`
-* `phpunit`
+* **phpmyadmin**
+ * Dump into [phpMyAdmin](http://localhost:4567/phpmyadmin)
+* **via ssh**
+ * `cd /vagrant`
+ * `vagrant ssh`
+ * `sh updatedb.sh`
+
+## Login with ssh
+
+Do you want to update the composer, npm, bower, ... installation? Just connect via ssh!
+
+* `cd /vagrant`
+* `vagrant ssh`
+* `cd /var/www/`
+* Do whatever you like - e.g. `php composer.phar update`
+
+## Update vm installation
+
+Unfortunately it is not possible to update the vm with a command.
+`vagrant provision` would duplicate some settings and that could lead to fatal errors.
+The only option currently available is to reset the whole vm.
+
+* `cd /vagrant`
+* `vagrant destroy`
+* `vagrant up`
+
+## Cookbook
+Vagrant is superb. But also very fragile. Here are some guides how you can reset your workstation.
+
+### FileAsset.php throws a fatal
+npm and bower are very fragile because of the shared folder system (vboxfs). If you run into fatals thrown by FileAsset, here's how you solve that:
+
+* `cd /vagrant`
+* `vagrant ssh`
+* `sh uicleaner.sh`
+
+### Provisioning fails
+
+Sometimes vagrant fails provisioning because some package 404s or because of some other issue.
+You'll recognize errors simply because either an error is shown in the console or the website doesn't work.
+In those cases, follow these steps to freshly install your vagrant copy:
+
+To reset the vm please refer to *Update vm installation*
+
+**This doesn't help**
+
+Remove the project directory, start with a fresh copy from git and follow the steps
+described in 'Installation'.
+
+### I've got some other problem
+
+You can access vagrant via `cd vagrant/ && vagrant ssh` for manual setup.
+
+### I want to run `grunt dev` for realtime compiling
+
+* `cd /vagrant`
+* `vagrant ssh`
+* `cd /var/www/src/module/Ui/assets`
+* `grunt dev`
+
+### Slow on startup
+
+* After booting, the vm takes some time until all scripts are initialized.
+This may take up to 10 minutes - the env won't be working during this time.
+
+## It works!
+
+Great! Vagrant enables per default:
+
+* Apache2 + PHP-5.5
+* MySQL-5.5 (with a recent db-dump)
+* node, npm, pm2, bower, grunt, composer, sass, compass
+* Grunt build (builds your .css, .js assets)
+* Composer install (installs php dependencies)
+* Sphinx Search (used for fulltext search - updates every minute)
+* [phpMyAdmin](http://localhost:4567/phpmyadmin)
+* [athene2](http://localhost:4567)
+
+## Run tests
+
+### From local
+
+* `cd /path/to/athene2/`
+* `phpunit` (without coverage)
+* `phpunit --coverage-html ./coverage`
+
+#### From vagrant
+
+Not supported yet (you shouldn't do that anyway)
