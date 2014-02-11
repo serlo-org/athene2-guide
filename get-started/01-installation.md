@@ -4,7 +4,6 @@ title: Installation
 anchor: installation
 group: 'getstarted'
 ---
-http://www.microsoft.com/en-us/download/confirmation.aspx?id=2391
 
 ## Requirements
 
@@ -13,77 +12,82 @@ http://www.microsoft.com/en-us/download/confirmation.aspx?id=2391
 
 ## Installation
 
-* `vagrant box add precise32 http://files.vagrantup.com/precise32.box`
-* `git clone https://github.com/serlo-org/athene2.git`
+**Attention Windows Users**
+
+Windows has a built-in max path length of 260 chars. It is strongly advised to put the athene2 root not too deep
+on your drive. Possible (reported working) directories are:
+
+* `X:\workspace\athene2`
+* `X:\athene2\`
+
+Where X is a drive of your choice.
+
+
+**Install the environment**
+
+* `vagrant box add precise32 http://files.vagrantup.com/precise32.box` - only needs to be done once
+* `git clone https://github.com/serlo-org/athene2.git` - clones the git repository
+* `cd athene2/` - the athene2 root directory
+* Setup your local settings
+ * `cp src/config/autoload/local.php.dist src/config/autoload/local.php` (Linux)
+ * `copy src/config/autoload/local.php.dist src/config/autoload/local.php` (Windows)
 * `cd vagrant/`
 * `vagrant up`
-* `cp config/autoload/local.php.dist config/autoload/local.php` (Linux)
-* `copy config/autoload/local.php.dist config/autoload/local.php` (Windows)
 * Open [athene2](http://localhost:4567)
 
-## Update Database
 
-* **phpmyadmin**
- * Dump into [phpMyAdmin](http://localhost:4567/phpmyadmin)
-* **via ssh**
- * `cd /vagrant`
- * `vagrant ssh`
- * `sh updatedb.sh`
+## Tools
 
-## Login with ssh
+#### Speed up the application
 
-Do you want to update the composer, npm, bower, ... installation? Just connect via ssh!
+You can build class- and template-maps. This will speed up the application. Run:
 
-* `cd /vagrant`
+* `cd athene2/vagrant`
+* `vagrant ssh`
+* `cd bin`
+* `sudo sh build.sh`
+
+Developing in build-mode can cause problems, to clean your build, run:
+
+* `cd athene2/vagrant`
+* `vagrant ssh`
+* `cd bin`
+* `sudo sh clean-build.sh`
+
+#### Update user interface
+
+You're having troubles with **Exceptions caused by Assetic** or you want to update the frontend dependencies? Run:
+
+* `cd athene2/vagrant`
+* `vagrant ssh`
+* `cd bin`
+* `sudo sh clean-ui.sh`
+
+#### Update Database
+
+Is the database out of date or do you want to reset it? Run:
+
+* `cd athene2/vagrant`
+* `vagrant ssh`
+* `cd bin`
+* `sudo sh update-mysql.sh`
+
+You can also use [phpMyAdmin](http://localhost:4567/phpmyadmin).
+
+#### Update composer dependencies
+
+* `cd athene2/vagrant`
 * `vagrant ssh`
 * `cd /var/www/`
-* Do whatever you like - e.g. `php composer.phar update`
+* `php composer.phar update`
 
-## Update vm installation
+## Reset the vm
 
-Unfortunately it is not possible to update the vm with a command.
-`vagrant provision` would duplicate some settings and that could lead to fatal errors.
-The only option currently available is to reset the whole vm.
-
-* `cd /vagrant`
+* `cd athene2/vagrant`
 * `vagrant destroy`
 * `vagrant up`
 
-## Cookbook
-Vagrant is superb. But also very fragile. Here are some guides how you can reset your workstation.
-
-### FileAsset.php throws a fatal
-npm and bower are very fragile because of the shared folder system (vboxfs). If you run into fatals thrown by FileAsset, here's how you solve that:
-
-* `cd /vagrant`
-* `vagrant ssh`
-* `sh uicleaner.sh`
-
-### Provisioning fails
-
-Sometimes vagrant fails provisioning because some package 404s or because of some other issue.
-You'll recognize errors simply because either an error is shown in the console or the website doesn't work.
-In those cases, follow these steps to freshly install your vagrant copy:
-
-To reset the vm please refer to *Update vm installation*
-
-**This doesn't help**
-
-Remove the project directory, start with a fresh copy from git and follow the steps
-described in 'Installation'.
-
-### I've got some other problem
-
-You can access vagrant via `cd vagrant/ && vagrant ssh` for manual setup.
-
-### I want to run `grunt dev` for realtime compiling
-
-* `cd /vagrant`
-* `vagrant ssh`
-* `cd /var/www/src/module/Ui/assets`
-* `grunt dev`
-
-### Slow on startup
+## Slow startup
 
 * After booting, the vm takes some time until all scripts are initialized.
 This may take up to 10 minutes - the env won't be working during this time.
