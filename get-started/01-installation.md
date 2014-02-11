@@ -23,11 +23,10 @@ Windows requires a special setup for symbolic links:
  * Right click on cmd.exe
  * Select "start as administrator"
 5. Run `fsutil behavior set SymlinkEvaluation L2L:1 R2R:1 L2R:1 R2L:1` in the cmd window
-6. Follow the Installation steps below
-7. **But** make sure to run `vagrant up` from the cmd window opened in step 4
+6. Follow the Installation steps below **but** make sure to run `vagrant up` (step 7) from the cmd window you opened in step 4
 
 **Note:** You only need to do this when you do a fresh install (e.g. after `vagrant destroy` or on a new system).
-You can run cmd from a normal command line after the VM has been provisioned successfully.
+You can run `vagrant up` from a normal command line after the VM has been provisioned successfully.
 
 ## Installation
 
