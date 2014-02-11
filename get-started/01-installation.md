@@ -26,7 +26,7 @@ Windows requires a special setup for symbolic links:
 6. Follow the Installation steps below
 7. **But** make sure to run `vagrant up` from the cmd window opened in step 4
 
-**Note: ** You only need to do this when you do a fresh install (e.g. after `vagrant destroy` or on a new system).
+**Note:** You only need to do this when you do a fresh install (e.g. after `vagrant destroy` or on a new system).
 You can run cmd from a normal command line after the VM has been provisioned successfully.
 
 ## Installation
