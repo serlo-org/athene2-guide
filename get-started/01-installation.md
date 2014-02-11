@@ -12,17 +12,22 @@ group: 'getstarted'
 
 ## Preinstall WINDOWS
 
-Windows requires a special setup:
+Windows requires a special setup for symbolic links:
 
 1. Shutdown all VirtualMachines with the VirtualBox GUI
 2. Close all VirtualBox GUIs
-3. Run `cmd` as an Administrator (start -> right click on cmd -> start as administrator)
-4. Run `fsutil behavior set SymlinkEvaluation L2L:1 R2R:1 L2R:1 R2L:1` in cmd
-5. Once you cloned the repository, run vagrant up **as the Administrator** via the cmd from step 3.
+3. Make sure, that no more instances of VirtualBox are running
+4. Run `cmd` as an Administrator:
+ * Open the start menu
+ * Enter "cmd.exe"
+ * Right click on cmd.exe
+ * Select "start as administrator"
+5. Run `fsutil behavior set SymlinkEvaluation L2L:1 R2R:1 L2R:1 R2L:1` in the cmd window
+6. Follow the Installation steps below
+7. **But** make sure to run `vagrant up` from the cmd window opened in step 4
 
-#### Do I need to run vagrant up always as an administrator?
-
-No, you only need to do this once, when the vm gets provisioned (-> on a fresh install or after `vagrant destroy`)
+**Note: ** You only need to do this when you do a fresh install (e.g. after `vagrant destroy` or on a new system).
+You can run cmd from a normal command line after the VM has been provisioned successfully.
 
 ## Installation
 
