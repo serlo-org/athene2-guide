@@ -5,50 +5,57 @@ anchor: tools
 group: 'getstarted'
 ---
 
-### Speed up the application
+### To accelerate the application
 
-You can build class- and template-maps. This will speed up the application. Run:
+For instance by using build class and template maps, the application will run faster. 
+Run:
 
 * `cd athene2/vagrant`
 * `vagrant ssh`
 * `cd bin`
 * `sudo sh build.sh`
 
-Developing in build-mode can cause problems, to clean your build, run:
+When developing in build mode, there can be various things that impact the application's performance. 
+The following will clean up the clean up the build, 
+Run:
 
 * `cd athene2/vagrant`
 * `vagrant ssh`
 * `cd bin`
 * `sudo sh clean-build.sh`
 
-### Update user interface
+### To update the user interface
 
-You're having troubles with **Exceptions caused by Assetic** or you want to update the frontend dependencies? Run:
+For issues with **Exceptions caused by Assetic** or to update the frontend dependencies, 
+Run:
 
 * `cd athene2/vagrant`
 * `vagrant ssh`
 * `cd bin`
 * `sudo sh clean-ui.sh`
 
-### Update Database
+### To update or reset the database
 
-Is the database out of date or do you want to reset it? Run:
+When the database out of date, or to reset the database,
+Run:
 
 * `cd athene2/vagrant`
 * `vagrant ssh`
 * `cd bin`
 * `sudo sh update-mysql.sh`
 
-You can also use [phpMyAdmin](http://localhost:4567/phpmyadmin).
+Or use the following:
 
-### Update composer dependencies
+ [phpMyAdmin](http://localhost:4567/phpmyadmin).
+
+### To update composer dependencies
 
 * `cd athene2/vagrant`
 * `vagrant ssh`
 * `cd /var/www/`
 * `php composer.phar update`
 
-### Reset the vm
+### To reset the virtual machine
 
 * `cd athene2/vagrant`
 * `vagrant destroy`
