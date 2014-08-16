@@ -7,11 +7,10 @@ group: 'editor'
 
 ### Introduction
 
-Der Editor kommt mit einem kleinen Node Js Server, der Markdown in HTML konvertiert.  
-Über die npm registry läd man den athene2-editor:
+The Athene2 Editor uses a Node JS server that converts the MD format into HTML. The NPM Registry loads the Athene2 Editor  
 
 ````
-cd src/modules/Ui/assets
+cd src/modules/ui/assets
 npm install
 ````
 
@@ -29,31 +28,31 @@ pm2 installation:
 [sudo] npm -g install pm2
 ````
 
-### Get it running
+### Up and Running
 
-Mit **pm2** (empfohlen):
+Mit **pm2** (recommended):
 
-Server starten:
+Initialise the server:
 
 ````
 pm2 start src/modules/Ui/assets/node_modules/athene2-editor/server/server.js
 ````
 
-Server beenden:
+Shut down server:
 
 ````
 pm2 dump && pm2 kill
 ````
 
-Ohne pm2:
+Without pm2:
 
-Starten:
+Start:
 
 ````
 node src/modules/Ui/assets/node_modules/athene2-editor/server/server.js
 ````
 
-Beenden:
+Stop:
 
 ````
 ctrl+c
