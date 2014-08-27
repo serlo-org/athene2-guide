@@ -7,7 +7,7 @@ group: 'getstarted'
 
 ## It works!
 
-Great! Vagrant enables per default:
+Vagrant enables per default:
 
 * Apache2 + PHP-5.5
 * MySQL-5.5 (with a recent db-dump)
@@ -20,14 +20,14 @@ Great! Vagrant enables per default:
 
 ## Slow startup
 
-* After booting, the vm takes some time until all scripts are initialized.
-This may take up to 10 minutes - the env won't be working during this time.
+* After booting, the VM script initialization process takes too long.
+The initialization process may take up to 10 minutes during which time the environment will not be working. (needs some further explanation, why does it take ten minutes)
 
 ## Not vagrant-related
 
 #### Permissions
 
-Permissions with global access should **never** be assigned to lower level roles. Doing so implies severe
-security breaches regardless what the intent was. It also may break role assignment for non-sysadmins.
+Permissions with global access should ** never ** be assigned to lower level roles. Doing so would imply a severe
+security breach independent of any intended action. It also may violate the role assignment for non-sysadmins.
 
-Permissions with global access should **only** be provided to **sysadmin** or similar superusers.
+Permissions with global access should ** only ** be provided to **sysadmin** or similar superusers.
