@@ -20,7 +20,7 @@ npm install
 
 ### Nice to have
 
-* [pm2](http://devo.ps/blog/2013/06/26/goodbye-node-forever-hello-pm2.html) um den node server am Laufen zu halten
+* [pm2](http://devo.ps/blog/goodbye-node-forever-hello-pm2/) to keep the server running
 
 pm2 installation:
 
