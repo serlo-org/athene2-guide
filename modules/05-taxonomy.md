@@ -5,20 +5,31 @@ anchor: taxonomy
 group: 'modules'
 ---
 
-Das Taxonomymodul ist zuständig, um Taxonomien (zb. Kategorie, Land, Lehrplan, ...) zu verwalten.
-Die Datenstruktur ist ein Baum wobei es nur eine Wurzel geben sollte (um die Taxonomien zentral verwalten zu können), jeder Knotenpunkt kann einen konfigurierbaren Typen haben.
+// Das Taxonomymodul ist zuständig, um Taxonomien (zb. Kategorie, Land, Lehrplan, ...) zu verwalten.
+// Die Datenstruktur ist ein Baum wobei es nur eine Wurzel geben sollte (um die Taxonomien zentral verwalten zu können), jeder Knotenpunkt kann einen konfigurierbaren Typen haben.
+The Taxonomy module manages Taxonomies, like "category", "country", "curriculum"...
+The underlying datastrcuture is a tree. Each node can be of a configurable type.
 
 
-### Architektur
+// ### Architektur
+### Architecture
 
-* `SharedTaxonomyManager implements SharedTaxonomyManagerInterface` verwaltet die unterschiedlichen Taxonomy Typen (zb. Kategorie, Lehrplan), kann aber auch Terme über die ID finden
-* `TaxonomyManager implements TaxonomyManagerInterface` stellt einen Taxonomy Typen da, welcher mehrere Terme hält.
-* `TaxonomyService implements TaxonomyServiceInterface` ist ein einzelner Term, wobei es sich um einen Delegator bzw eine Fassade hält.
-* `TaxonomyType implements TaxonomyTypeInterface` ist ein Taxonomy Typ (zb "category" oder "curriculum")
-* `Taxonomy implements TaxonomyInterface` ist ein Taxonomy Typ in einer bestimmten Sprache (zb "category" & "de")
-* `TaxonomyTerm implements TaxonomyTermInterface` ist der eigentliche Term, wobei die Inhalte des Terms speratat über das Term Modul gespeichert werden, um doppelte Inhalte zu vermeiden.
+// * `SharedTaxonomyManager implements SharedTaxonomyManagerInterface` verwaltet die unterschiedlichen Taxonomy Typen (zb. Kategorie, Lehrplan), kann aber auch Terme über die ID finden
+// * `TaxonomyManager implements TaxonomyManagerInterface` stellt einen Taxonomy Typen da, welcher mehrere Terme hält.
+// * `TaxonomyService implements TaxonomyServiceInterface` ist ein einzelner Term, wobei es sich um einen Delegator bzw eine Fassade hält.
+// * `TaxonomyType implements TaxonomyTypeInterface` ist ein Taxonomy Typ (zb "category" oder "curriculum")
+// * `Taxonomy implements TaxonomyInterface` ist ein Taxonomy Typ in einer bestimmten Sprache (zb "category" & "de")
+// * `TaxonomyTerm implements TaxonomyTermInterface` ist der eigentliche Term, wobei die Inhalte des Terms speratat über das Term Modul gespeichert werden, um doppelte Inhalte zu vermeiden.
 
-### Konfigurieren
+* `SharedTaxonomyManager implements SharedTaxonomyManagerInterface` manages various Taxonomy types (e.g. "category" oder "curriculum"), but can also find Terms by their id.
+* `TaxonomyManager implements TaxonomyManagerInterface` represents a Taxonomy type, which manages multiple Terms.
+* `TaxonomyService implements TaxonomyServiceInterface` a Delegator/Fassade managing a single Term
+* `TaxonomyType implements TaxonomyTypeInterface` is a Taxonomy type (e.g. "category" oder "curriculum")
+* `Taxonomy implements TaxonomyInterface` is a Taxonomy type in a given language (e.g. "category" & "en")
+* `TaxonomyTerm implements TaxonomyTermInterface` is the actual Term. The Term's contents are stored seperately via the Term module in order to avoid redundancy.
+
+// ### Konfigurieren
+### Configuration
 
 module.config.php
 
@@ -93,37 +104,51 @@ return array(
 ```
 
 
-### Benutzen
+// ### Benutzen
 
-#### Eine Taxonomy finden
+// #### Eine Taxonomy finden
 
-Per Id
+// Per Id
+// ```php
+// $sharedTaxonomyManager->getTaxonomy(1);
+// ```
+
+// Per Name (Typ) und Sprache
+// ```php
+// $sharedTaxonomyManager->findTaxonomyByName('foo', $languageService);
+// ```
+
+### Usage
+#### Finding a Taxonomy
+
 ```php
+// by id
 $sharedTaxonomyManager->getTaxonomy(1);
-```
 
-Per Name (Typ) und Sprache
-```php
+// by name (type) and language
 $sharedTaxonomyManager->findTaxonomyByName('foo', $languageService);
 ```
 
-#### Einen Term über den SharedTaxonomyManager finden
+
+// #### Einen Term über den SharedTaxonomyManager finden
+#### Finding a Term via the `SharedTaxonomyManager`
 
 ```php
 $term = $sharedTaxonomyManager->getTerm(3);
 echo $term->getId(); // outputs '3'
 ```
 
-#### Einen Term über einen TaxonomyManager finden
-
-Per Id
+// #### Einen Term über einen TaxonomyManager finden
+#### Finding a Term via a `TaxonomyManager`
 
 ```php
+// by id
 $term = $taxonomyManager->getTerm(3);
 echo $term->getId(); // outputs '3'
 ```
 
-Über die Eltern
+// Über die Eltern
+Via its parents
 
 ```php
 $ancestors = explode('/', 'path/to/term');
@@ -131,9 +156,11 @@ $term = $taxonomyManager->findTermByAncestors($ancestors);
 echo $term->getName(); // outputs 'term'
 ```
 
-#### Die Wurzel(n) dieses Typen finden
+// #### Die Wurzel(n) dieses Typen finden
+#### Finding the root(s) of a type.
 
-Gibt alle Terme dieses Typs zurück, die keine Eltern haben oder einen anderen Typen als Eltern haben.
+// Gibt alle Terme dieses Typs zurück, die keine Eltern haben oder einen anderen Typen als Eltern haben.
+Find all Terms of a type that don't have a parent or are of a different type then their parents.
 
 ```php
 $result = $taxonomyManager->getSaplings();
@@ -142,9 +169,11 @@ foreach($result as $term){
 }
 ```
 
-#### Verwandte eines Terms finden
+// #### Verwandte eines Terms finden
+#### Finding related Terms
 
-Alle Kinder finden
+// Alle Kinder finden
+All children
 
 ```php
 $children = $termService->getChildren();
@@ -153,7 +182,8 @@ foreach($children as $term){
 }
 ```
 
-Nur Kinder eines bestimmten Typs finden
+// Nur Kinder eines bestimmten Typs finden
+All children of a specific type
 
 ```php
 $children = $termService->findChildrenByTaxonomyName('bar');
@@ -162,18 +192,23 @@ foreach($children as $term){
 }
 ```
 
-Die Eltern finden
+// Die Eltern finden
+Find parent
 
 ```php
 $parent = $termService->getParent();
 ```
 
-#### Assoziationen
+// #### Assoziationen
+#### Associations
 
-Damit Assoziationen funktionieren, muss zunächst eine m:n Tabelle von der zu Assoziierenden Tabelle zu `term_taxonomy` in der Datenbank angelegt werden. Außerdem muss Doctrine\ORM wissen, dass es diese Assoziation gibt, womit dem Entity ein neues Attribut verliehen werden muss.
+// Damit Assoziationen funktionieren, muss zunächst eine m:n Tabelle von der zu Assoziierenden Tabelle zu `term_taxonomy` in der Datenbank angelegt werden. Außerdem muss Doctrine\ORM wissen, dass es diese Assoziation gibt, womit dem Entity ein neues Attribut verliehen werden muss.
+Before a Association can be used a m:n table must be created between `term_taxonomy` and the table to be associated.
+Additionally Doctrine\ORM needs to know about the association.
 
 
-Eine Assoziation erstellen
+// Eine Assoziation erstellen
+Creating an Association
 
 ```php
 $termService = $sharedTaxonomyManager()->getTaxonomy('', $languageService)->getTerm(1)
@@ -184,14 +219,16 @@ echo $termService->isAssociated('foolinks', $foolinkEntity); // outputs: true
 $sharedTaxonomyManager()->getObjectManager()->flush();
 ```
 
-Assoziierte Elemente holen
+// Assoziierte Elemente holen
+Fetching assiciated elements
 
 ```php
 $termService = $sharedTaxonomyManager()->getTaxonomy('', $languageService)->getTerm(1)
 $foolinks = $termService->getAssociated('foolinks');
 ```
 
-Eine Assoziation löschen
+// Eine Assoziation löschen
+Removing an association
 
 ```php
 $termService = $sharedTaxonomyManager()->getTaxonomy('', $languageService)->getTerm(1)

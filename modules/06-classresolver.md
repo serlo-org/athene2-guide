@@ -5,9 +5,9 @@ anchor: classresolver
 group: 'modules'
 ---
 
-Der ClassResolver findet zu Interfaces die passende Implementierung.
+The `ClassResolver` module finds concrete implementation of interfaces.
 
-### Konfigurieren
+### Configuration
 
 module.config.php
 
@@ -20,7 +20,7 @@ return array(
 );
 ```
 
-### Ein Interface auflösen
+### Resolve an interface
 
 ```php
 $classResolver = $serviceManager->get('ClassResolver\ClassResolver');
@@ -31,5 +31,5 @@ echo $classResolver->resolveClassName('FooInterface'); // 'Foo'
 ```php
 $classResolver = $serviceManager->get('ClassResolver\ClassResolver');
 
-$bar = $classResolver->resolve('BarInterface'); // äquivalent zu `$bar = $serviceLocator->get('Bar');`
+$bar = $classResolver->resolve('BarInterface'); // equivalent to `$bar = $serviceLocator->get('Bar');`
 ```
