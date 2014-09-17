@@ -5,13 +5,21 @@ anchor: tokenizer
 group: 'modules'
 ---
 
-Dieses Modul ermöglicht es, Strings mit tokens zu versetzen und diese ersetzen zu lassen. So wird beispielsweise aus `hallo {user}` `hallo foobar`.
+<!-- Dieses Modul ermöglicht es, Strings mit tokens zu versetzen und diese ersetzen zu lassen. So wird beispielsweise aus `hallo {user}` `hallo foobar`. -->
 
-### How-To
+The `Tokenizer` module manages the replacement of tokens in strings. For exmaple, `hello {user}` becomes `hello foobar`.
 
-#### Provider aufsetzen
+<!-- ### How-To  -->
 
-Damit die Tokens ersetzt werden können, muss ein Provider implementiert werden, der diese Daten zur Verfügung stellt:
+### Usage
+
+<!-- #### Provider aufsetzen -->
+
+#### Set up the provider
+
+<!-- Damit die Tokens ersetzt werden können, muss ein Provider implementiert werden, der diese Daten zur Verfügung stellt: -->
+
+To enable the replacement of tokens, you have to implement a provider for the data:
 
 Provider.php
 
@@ -37,7 +45,7 @@ class TokenizerProvider extends AbstractProvider implements ProviderInterface
 
     protected function validObject($object)
     {
-    	// Optimalerweise steht hier zum Beispiel: if( ! $object instanceOf FooInterface )    
+    	// Optimalerweise steht hier zum Beispiel: if( ! $object instanceOf FooInterface )
         if (! is_object($object) )
             throw new \InvalidArgumentException(sprintf('Expected PostInterface but got `%s`', get_class($object)));
     }
@@ -45,7 +53,7 @@ class TokenizerProvider extends AbstractProvider implements ProviderInterface
 ```
 
 
-#### Tokenizer benutzen
+#### Use the tokenizer
 
 
 SomeService.php
@@ -53,7 +61,7 @@ SomeService.php
 ```php
 class SomeService {
 	use \Token\TokenizerAwareTrait;
-	
+
 	public function foobar($object)
 	{
         $string = $this->getTokenizer()->transliterate('TokenizerProvider', $object, 'token/{id}-{title}');
