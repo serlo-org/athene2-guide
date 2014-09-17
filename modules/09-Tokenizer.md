@@ -5,19 +5,11 @@ anchor: tokenizer
 group: 'modules'
 ---
 
-<!-- Dieses Modul ermöglicht es, Strings mit tokens zu versetzen und diese ersetzen zu lassen. So wird beispielsweise aus `hallo {user}` `hallo foobar`. -->
-
 The `Tokenizer` module manages the replacement of tokens in strings. For exmaple, `hello {user}` becomes `hello foobar`.
-
-<!-- ### How-To  -->
 
 ### Usage
 
-<!-- #### Provider aufsetzen -->
-
 #### Set up the provider
-
-<!-- Damit die Tokens ersetzt werden können, muss ein Provider implementiert werden, der diese Daten zur Verfügung stellt: -->
 
 To enable the replacement of tokens, you have to implement a provider for the data:
 

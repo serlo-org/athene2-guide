@@ -5,10 +5,7 @@ anchor: alias
 group: 'modules'
 ---
 
-<!-- Das Alias Modul dient dazu, Urls schöner zu machen. So wird beispielsweise aus `/page/view/1` `/alias/seite/verein/finanzen`. -->
-
 The `Alias` module beautifies the URLs. For example, `/page/view/1` becomes `/alias/page/association/finances`.
-
 
 ### Features
 
@@ -23,8 +20,8 @@ The `Alias` module beautifies the URLs. For example, `/page/view/1` becomes `/al
 * **Fallbacks**: Fallbacks ensure that no problems arise during the allocation of aliases.
 * **AutoAlias**: You can configure automatic aliasing.
 * **Listeners**: Listeners make the creation of aliases easy by using automatic aliasing.
-* **UrlGenerating**: The URL ViewHelper checks whether there already exists an alias for the given URL and returns it.
-* **Aliases do not become obsolete**: It is possible to define more than one alias for a given URL. Therefore, things such as changes of the title do not affect the availability of the content.
+* **UrlGenerating**: The URL ViewHelper checks whether an alias already exists for the given URL and returns it.
+* **Aliases do not become obsolete**: It is possible to define more than one alias for a given URL. Thus changing titles do not affect the availability of the content.
 
 ### Create aliases
 
@@ -44,7 +41,7 @@ return array(
                 'fallback' => 'page/{category}/{id}-{title}'
             )
         )
-    ),
+    )
 );
 ```
 
