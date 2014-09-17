@@ -5,40 +5,56 @@ anchor: term
 group: 'modules'
 ---
 
-Das Termmodul hält Wörter, welche zum Beispiel für die Taxonomy verwendet werden.
+// Das Termmodul hält Wörter, welche zum Beispiel für die Taxonomy verwendet werden.
+The Term module manages words which may be used by the Taxonomy.
 
-### Architektur
+// ### Architektur
+### Architecture
 
-* `TermManager` hält die Terms
-* `TermService` hält den Term
-* `Term` das Entity
+* `TermManager` manages Terms
+* `TermService` holds a Term
+* `Term` the Entity
 
 ### Setup
 
-Kein Setup nötig!
+// Kein Setup nötig!
+No setup required.
 
-### Benutzen
-
-#### Einen Term über die ID finden
-
+// ### Benutzen
+### Finding a Term
 ```php
+// by id
 $term = $termManager->getTerm(1);
-```
 
-#### Einen Term über den Namen finden
-
-```php
+// by name
 $term = $termManager->findTermByName('foobar');
-```
 
-#### Einen Term über den Slug finden
-
-```php
+// by slug
 $term = $termManager->findTermBySlug('foobar');
 ```
 
-#### Einen Term erstellen
+// #### Einen Term über die ID finden
+// 
+// ```php
+// $term = $termManager->getTerm(1);
+// ```
+// 
+// #### Einen Term über den Namen finden
+// 
+// ```php
+// $term = $termManager->findTermByName('foobar');
+// ```
+// 
+// #### Einen Term über den Slug finden
+// 
+// ```php
+// $term = $termManager->findTermBySlug('foobar');
+// ```
+// 
 
-```php
-$term = $termManager->findTermBySlug('foobar');
-```
+
+// #### Einen Term erstellen
+// 
+// ```php
+// $term = $termManager->findTermBySlug('foobar'); // WHOOT?
+// ```
