@@ -90,6 +90,7 @@ Alle verfügbaren Optionen können im Modul `ATHENE2` während der Instanzierung
 **Confirm**, **Alert** und **Notify** Modals use certain HTML classes to automatically set links and buttons
 
 Optionen: 
+Options
 
 * `data-type` Attribut: `primary` (default), `success`, `warning`, `info`, `danger`
 * `data-title` Attribut (optional): Titel des Modals
@@ -118,12 +119,14 @@ Modal.show({
 ## Datepicker
 
 Ein Datepicker lässt sich durch folgendes Markup initialisieren:
+A Datapicker is initialised using the following markup:
 
 ```html
 <input type="text" class="datepicker form-control" />
 ```
 
 Eine Daterange wie folgt:
+A data range as follows:
 
 ```html
 <div class="input-daterange input-group">
@@ -133,17 +136,19 @@ Eine Daterange wie folgt:
 </div>
 ```
 
-(siehe auch [https://github.com/eternicode/bootstrap-datepicker](https://github.com/eternicode/bootstrap-datepicker))
+(See [https://github.com/eternicode/bootstrap-datepicker](https://github.com/eternicode/bootstrap-datepicker))
 
 ## TimeAgo Felder
 
 Um ein Datum im "Vor x"-Format darzustellen, reicht es aus, einem Tag die Klasse `.timeago` und als `title` Attribut ein valides Datum zu geben:
+To display a date in "days ago" format, use Day in the '.timeago' class and set the 'title' attribute using a valid date as follows:
 
 ```html
 <span class="timeago" title="Mon Oct 20 2013 12:25:20 GMT+0200 (CEST)">21.10.2013</span>
 ```
 
 Wird automatisch zu (etwas ähnlichem wie):
+There is an automatic conversion to (something like) as follows:
 
 ```html
 <span class="timeago" title="20.10.2013">Vor zwei Tagen</span>
@@ -153,50 +158,61 @@ Wird automatisch zu (etwas ähnlichem wie):
 ## Sortable List
 
 Sortierbare Listen sind durch das jQuery Modul [Nestable](http://dbushell.github.io/Nestable/) ermöglicht.
+Using the jQuery Modul [Nestable](http://dbushell.github.io/Nestable/) to create sortable lists as follows:
 
-List Optionen
+List Options
 
-* `data-action` Attribut (required): die URL für das Speichern der Sortierung
-* `data-depth` Attribut: Die maximale tiefe einer Verschachtelten Liste (default: 0)
-* `data-active`: Wenn auf `false` gesetzt, muss der Benutzer das Sortieren erst aktivieren (default: `true`)
+* `data-action` Attribute (required): the URL to make the sorted list persistent
+* `data-depth` Attribute: The maximum depth in a nested list    Die maximale tiefe einer Verschachtelten Liste (default: 0)
+* `data-active`: When set to 'false' an event is needed to activate the sort capability (default: 'true')  Wenn auf `false` gesetzt, muss der Benutzer das Sortieren erst aktivieren (default: `true`)
 
 Item Option
 
-* `data-id` Attribut (required): die ID des jeweiligen Inhaltes
+* `data-id` Attribute (required): The content ID   die ID des jeweiligen Inhaltes
 
 
-Beispiel Markup:
+Example Markup:
 
 ```html
 <!-- das Attribut data-action enthält die URL
     über die die neue Sortierung gespeichert werden kann -->
+<!-- the attribute data-action contains the URL
+    that points to the place where the new sort will/can be made persistent -->
 <div class="sortable" data-action="/save/my/sort" data-depth="5" data-active="false">
     <div class="sortable-actions">
         <!-- (Optional) Button um das Sortieren zu aktivieren -->
         <!-- Nur wichtig wenn data-active="false" -->
+        <!-- (Optional) Button to activate the sort -->
+        <!-- only important when data-active="false" -->
         <button class="btn btn-success sortable-activate-action">
-            Sortieren
+            Sort Sortieren
         </button>
         <!-- ein Link oder Button, der die aktion "Speichern" auslöst -->
         <!-- wichtig sind die Klassen .sortable-save-action und .is-hidden -->
+        <!-- a Link or Button, that initiates the "Save" action -->
+        <!-- in this context the classes '.sortable-save-action' and '.is-hidden' are important -->
         <button class="btn btn-success sortable-save-action is-hidden">
-            Reihenfolge speichern
+            Save list  Reihenfolge speichern
         </button>
         <!-- Ein Button um alle Änderungen rückgängig zu machen -->
         <button class="btn btn-success sortable-abort-action is-hidden">
-            Abbrechen
+            Interupt Abbrechen
         </button>
     </div>
     <ol class="sortable-list">
         <!-- das data-id Attribut enthält die ID des jeweiligen Inhaltes -->
+		<!-- the data-id attribute contains the ID for the specific content -->
         <li class="sortable-item" data-id="1">
             <!-- das element, das dem Benutzer das Draggen erlaubt -->
+			<!-- the element that permits dragging  -->
             <span class="sortable-handle"></span>
             <div class="sortable-item-inner">
                 <!-- Inhalt des jeweiligen Items -->
+				<!-- Content of the specific sort item -->
                 Sortable Item No. 1!
             </div>
             <!-- weitere Verschachtelungen -->
+			<!-- further nesting -->
             <ol class="sortable-list">
                 <li class="sortable-item" data-id="941">
                     ...
@@ -211,6 +227,7 @@ Beispiel Markup:
 ```
 
 **Das Handle** kann entweder ein eigenes `span` Element sein (siehe oben), oder mit dem gesamten Listen Inhalt verknüpft sein:
+**The handle can either be a `span` Element (see above), or bound with the entire list content:
 
 ```html
 ...
@@ -222,3 +239,5 @@ Beispiel Markup:
 ...
 ```
 In beiden Fällen muss der `.sortable-handle` allerdings ein direktes Child des `.sortable-item`s sein.
+In both cases `.sortable-handle` should be a child of `.sortable-item`.
+
