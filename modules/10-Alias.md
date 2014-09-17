@@ -9,13 +9,6 @@ The `Alias` module beautifies the URLs. For example, `/page/view/1` becomes `/al
 
 ### Features
 
-<!-- * Entkoppelt: Der AliasManager ist enkoppelt von dem Rest der Software und somit flexibel einsetzbar.
-* Fallbacks: Fallbacks garantieren, dass es nicht zu Problemen bei der Aliasvergabe kommt.
-* AutoAlias: Per Konfiguration kann man bequem Autoaliasing benutzen.
-* Listeners: Listener ermöglichen es mittels Autoaliasing, einfach Aliases zu erstellen.
-* UrlGenerating: Der Url ViewHelper checkt, ob für die Url ein Alias existiert und gibt diese aus, falls vorhanden.
-* Aliases veralten nicht: Es können mehrere Aliases für eine Url angelegt werden, damit schafft man es, dass beispielsweise Änderungen im Titel keine Auswirkung auf die Auffindbarkeit haben. -->
-
 * **Decoupled**: The `AliasManager` is decoupled from the rest of the software and can therefore be used more flexibly.
 * **Fallbacks**: Fallbacks ensure that no problems arise during the allocation of aliases.
 * **AutoAlias**: You can configure automatic aliasing.
