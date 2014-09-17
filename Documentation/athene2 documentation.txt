@@ -1,0 +1,27 @@
+Documentation
+## Introduction
+Athene is a learning management system ...
+
+## Architecture
+
+## Roadmap
+
+## How to Contribute
+
+## Trademark Guidelines
+
+## Page Contents
+## Athene Description
+    What is Athene?
+    Status
+    Getting Started
+    How to use this document
+    Design Philosophy
+    Idealized Design
+    Technical Rationale
+    Content Management
+    Wiki
+    Open, crown sourcing
+ ## System Structure
+ ## Technical Guidelines
+ ## Project Guidelines
