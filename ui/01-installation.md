@@ -31,7 +31,7 @@ Athene2/ui has two predefined Grunt tasks:
 * Executes a `watch` command on Sass, JS and picture files
 * Makes the Sass files into uncompressed CSS with comments
 * Creates vendor prefixes for CSS3, for instance -webkit-transition
-* Puts all the required js modules into a `scripts.js`
+* Puts all the requirejs modules into a `scripts.js`
 * Checks the Java Script with [jshint](http://www.jshint.com/)
 
 `grunt build`:
