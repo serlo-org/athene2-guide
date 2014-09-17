@@ -10,55 +10,71 @@ group: 'ui'
 ## Overlay
 
 Alle Links mit der Klasse `.ajax-content` öffnen sich in einem Overlay. Wenn sich im geladenen Inhalt wieder `.ajax-content` Links befinden öffnen sich diese bei Klick im selben Overlay als neues Tab.
+All links with the class '.ajax.content' open in an overlay. If the link contains '.ajax-content' nested links, they open with a click in the same overlay as a new tab.
 
+All available options can be passed to the module ATHENE2 during the AjaxOverlay initiation / instantiation .
 Alle verfügbaren Optionen können im Modul `ATHENE2` während der Instanzierung des AjaxOverlays übergeben werden:
 
 ```javascript
 {
     // die Klasse auf die das Overlay angewandt werden soll
+	// The class that is used by the overlay
     linkClass: 'ajax-content',
     // Elemente die das Overlay schließen
+	// Elements that close the overlay
     closeClass: 'close-overlay',
     // Standard Context für das initialisieren der .linkClass
+	// Standard context for the '.linkclass' initialisation
     context: 'body',
     // active body class
     overlayActiveClass: 'ajax-content-active',
     // der Inhalt Selector, nach dem in per ajax geladenen Inhalt gesucht wird
+	// The inhalt selector in which ajax loaded content searches 
     ajaxContentSelector: '#content-container',
     // der Selector der dem Tab den Titel gibt
+	// Selector that give titles tabs
     titleSelector: '#pagetitle',
     // Klasse für das aktive Tab
+	// Class for the active tab
     activeTabClass: 'active',
     // Wie viele Tabs maximal dargestellt werden sollen
+	// Defines the maximum number of tabs to be displayed
     tabLimit: 5,
     // Callbacks
     on: {
         // Wenn neuer Inhalt geladen wurde
+		// After new content loads
         contentLoaded: function (AjaxOverlayInstance) {
             // 'this' is the AjaxPage instance
         },
         // Wenn eine AjaxPage (tab) geöffnet wurde
+		// After an AjaxPage opens
         contentOpened: function (AjaxOverlayInstance) {
             // 'this' is the AjaxPage instance
         },
         // Wenn ein Ajax Fehler auftritt
+		// After an Ajax error occurs
         error: function () {
             // 'this' is the AjaxOverlay instance,
             // arguments are all the arguments from jQuery.ajax.error
         },
         // Bevor das Overlay geschlossen wird
+		// Before the Overlay closes
         beforeClose: function () {
             // 'this' is the AjaxOverlay instance
         },
         // Nachdem das Overlay geschlossen wurde
+		// After the Overlay closed
         afterClose: function () {
             // 'this' is the AjaxOverlay instance
         },
         // Bevor das Overlay geöffnet wird
+		// Before the Overlay opens
         beforeOpen: function () {
             // 'this' is the AjaxOverlay instance
         },
         // Nachdem das Overlay geöffnet wurde
+		// After the Overlay opens
         afterOpen: function () {
             // gets called right after the AjaxOverlay has been opened
             // 'this' is the AjaxOverlay instance
@@ -71,6 +87,7 @@ Alle verfügbaren Optionen können im Modul `ATHENE2` während der Instanzierung
 ## Modals
 
 **Confirm**, **Alert** und **Notify** Modals können durch bestimmte HTML Klassen automatisch auf Links und Buttons gesetzt werden:
+**Confirm**, **Alert** und **Notify** Modals use certain HTML classes to automatically set links and buttons
 
 Optionen: 
 
