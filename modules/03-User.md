@@ -5,23 +5,19 @@ anchor: user
 group: 'modules'
 ---
 
-// Das Usermodul ist zuständig für alles, was den User betrifft.
-The User module takes care of everything related to users.
+The `User` module takes care of everything related to users.
 
-// ### Architektur
 ### Architecture
 
-* `UserManager` holds the Users
-* `UserService` hold the Entity
-* `User` the Entity
+* `UserManager` holds the `User`s
+* `UserService` hold the entity
+* `User` the entity
 
 ### Setup
 
-// Es ist kein Setup nötig!
 No setup required.
 
-// ### Den Benutzer der Session holen
-### Getting the current Session's User
+### Get the current session's user
 
 ```php
 $user = $userManager->getUserFromRequest();
@@ -32,8 +28,7 @@ if(!$user){
 }
 ```
 
-// ### Einen Benutzer erstellen
-### Creating a User
+### Create a User
 
 ```php
 $user = $userManager->createUser(array(
@@ -44,8 +39,7 @@ $user = $userManager->createUser(array(
 $userManager->getObjectManager()->flush();
 ```
 
-// ### Einen Benutzer holen
-### Finding a User
+### Find a User
 
 ```php
 // by user id
@@ -58,23 +52,20 @@ $user = $userManager->findUserByUsername('foobar');
 $user = $userManager->findUserByUsername('foo@bar.de');
 ```
 
-// #### Über die UserId
-// #### by user Id
+#### By user Id
 
-// ```php
-// $user = $userManager->getUser(1);
-// ```
+```php
+$user = $userManager->getUser(1);
+```
 
-// #### Über den Usernamen
-// #### by username
+#### By username
 
-// ```php
-// $user = $userManager->findUserByUsername('foobar');
-// ```
+```php
+$user = $userManager->findUserByUsername('foobar');
+```
 
-// #### Über die Email
-// #### by email
+#### By email
 
-// ```php
-// $user = $userManager->findUserByUsername('foo@bar.de');
-// ```
+```php
+$user = $userManager->findUserByUsername('foo@bar.de');
+```

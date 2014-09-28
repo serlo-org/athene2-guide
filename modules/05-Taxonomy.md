@@ -7,11 +7,9 @@ group: 'modules'
 
 // Das Taxonomymodul ist zuständig, um Taxonomien (zb. Kategorie, Land, Lehrplan, ...) zu verwalten.
 // Die Datenstruktur ist ein Baum wobei es nur eine Wurzel geben sollte (um die Taxonomien zentral verwalten zu können), jeder Knotenpunkt kann einen konfigurierbaren Typen haben.
-The Taxonomy module manages Taxonomies, like "category", "country", "curriculum"...
-The underlying datastrcuture is a tree. Each node can be of a configurable type.
+The `Taxonomy` module manages taxonomies, like "category", "country", "curriculum"...
+The underlying datastructure is a tree. Each node can be of a configurable type.
 
-
-// ### Architektur
 ### Architecture
 
 // * `SharedTaxonomyManager implements SharedTaxonomyManagerInterface` verwaltet die unterschiedlichen Taxonomy Typen (zb. Kategorie, Lehrplan), kann aber auch Terme über die ID finden
@@ -21,14 +19,13 @@ The underlying datastrcuture is a tree. Each node can be of a configurable type.
 // * `Taxonomy implements TaxonomyInterface` ist ein Taxonomy Typ in einer bestimmten Sprache (zb "category" & "de")
 // * `TaxonomyTerm implements TaxonomyTermInterface` ist der eigentliche Term, wobei die Inhalte des Terms speratat über das Term Modul gespeichert werden, um doppelte Inhalte zu vermeiden.
 
-* `SharedTaxonomyManager implements SharedTaxonomyManagerInterface` manages various Taxonomy types (e.g. "category" oder "curriculum"), but can also find Terms by their id.
-* `TaxonomyManager implements TaxonomyManagerInterface` represents a Taxonomy type, which manages multiple Terms.
-* `TaxonomyService implements TaxonomyServiceInterface` a Delegator/Fassade managing a single Term
-* `TaxonomyType implements TaxonomyTypeInterface` is a Taxonomy type (e.g. "category" oder "curriculum")
-* `Taxonomy implements TaxonomyInterface` is a Taxonomy type in a given language (e.g. "category" & "en")
-* `TaxonomyTerm implements TaxonomyTermInterface` is the actual Term. The Term's contents are stored seperately via the Term module in order to avoid redundancy.
+* `SharedTaxonomyManager implements SharedTaxonomyManagerInterface` manages various Taxonomy types (e.g. "category" oder "curriculum"), but can also find `Term`s by their id.
+* `TaxonomyManager implements TaxonomyManagerInterface` represents a `Taxonomy` type, which manages multiple `Term`s.
+* `TaxonomyService implements TaxonomyServiceInterface` a delegator/Ffssade managing a single `Term`
+* `TaxonomyType implements TaxonomyTypeInterface` is a `Taxonomy` type (e.g. "category" oder "curriculum")
+* `Taxonomy implements TaxonomyInterface` is a `Taxonomy` type in a given language (e.g. "category" & "en")
+* `TaxonomyTerm implements TaxonomyTermInterface` is the actual `Term`. The `Term`'s contents are stored seperately via the `Term` module in order to avoid redundancy.
 
-// ### Konfigurieren
 ### Configuration
 
 module.config.php
@@ -36,53 +33,53 @@ module.config.php
 ```php
 return array(
     'taxonomy' => array(
-    
-    	// Define your associations here
+
+    	// define your associations here
         'associations' => array(
-        
+
         	// you can get the associated entities with $termService->getAssociated('foolinks');
             'foolinks' => function  (ServiceLocatorInterface $sm, $collection)
             {
                 return $sm->get('FoobarService')->doSomething($collection);
             }
-            
+
         ),
-        
+
         // define your types here
         'types' => array(
-        
+
         	// type 'foo'
             'foo' => array(
                 'options' => array(
-                
+
                 	// no associations are allowed. You can not use $termService->getAssociated('foolinks')!
                     'allowed_associations' => array(
                     ),
-                    
+
                     // the only parent type allowed is 'root'. Note that you can't add foo to foo, as it is not an allowed parent type
                     'allowed_parents' => array(
                         'root',
                     ),
-                    
+
                     // use custom templates
                     'templates' => array(
-                    
+
                     	// use a custom template for the update view
                         'update' => 'taxonomy/taxonomy/update'
                     ),
-                    
+
                     // radix disabled, you can't set parent_id to null!
                     'radix_enabled' => false
                 )
             ),
             'bar' => array(
                 'options' => array(
-                
+
                 	// Associations are allowed. You can use $termService->getAssociated('foolinks')!
                     'allowed_associations' => array(
                     	'foolinks'
                     ),
-                
+
                 	// self-referencing is allowed here
                     'allowed_parents' => array(
                         'foo',
@@ -91,7 +88,7 @@ return array(
                     'radix_enabled' => false
                 )
             ),
-            
+
             // this is the root, it should always be present
             'root' => array(
                 'options' => array(
@@ -103,23 +100,8 @@ return array(
 );
 ```
 
-
-// ### Benutzen
-
-// #### Eine Taxonomy finden
-
-// Per Id
-// ```php
-// $sharedTaxonomyManager->getTaxonomy(1);
-// ```
-
-// Per Name (Typ) und Sprache
-// ```php
-// $sharedTaxonomyManager->findTaxonomyByName('foo', $languageService);
-// ```
-
 ### Usage
-#### Finding a Taxonomy
+#### Find a Taxonomy
 
 ```php
 // by id
@@ -129,38 +111,29 @@ $sharedTaxonomyManager->getTaxonomy(1);
 $sharedTaxonomyManager->findTaxonomyByName('foo', $languageService);
 ```
 
-
-// #### Einen Term über den SharedTaxonomyManager finden
-#### Finding a Term via the `SharedTaxonomyManager`
+#### Find term via the `SharedTaxonomyManager`
 
 ```php
 $term = $sharedTaxonomyManager->getTerm(3);
 echo $term->getId(); // outputs '3'
 ```
 
-// #### Einen Term über einen TaxonomyManager finden
-#### Finding a Term via a `TaxonomyManager`
+#### Find a Term via a `TaxonomyManager`
 
 ```php
 // by id
 $term = $taxonomyManager->getTerm(3);
 echo $term->getId(); // outputs '3'
-```
 
-// Über die Eltern
-Via its parents
-
-```php
+// by parent
 $ancestors = explode('/', 'path/to/term');
 $term = $taxonomyManager->findTermByAncestors($ancestors);
 echo $term->getName(); // outputs 'term'
 ```
 
-// #### Die Wurzel(n) dieses Typen finden
-#### Finding the root(s) of a type.
+#### Find the root(s) of a type.
 
-// Gibt alle Terme dieses Typs zurück, die keine Eltern haben oder einen anderen Typen als Eltern haben.
-Find all Terms of a type that don't have a parent or are of a different type then their parents.
+Find all Terms of a type that do not have a parent or are of a different type then their parents.
 
 ```php
 $result = $taxonomyManager->getSaplings();
@@ -169,10 +142,8 @@ foreach($result as $term){
 }
 ```
 
-// #### Verwandte eines Terms finden
-#### Finding related Terms
+#### Find related Terms
 
-// Alle Kinder finden
 All children
 
 ```php
@@ -182,7 +153,6 @@ foreach($children as $term){
 }
 ```
 
-// Nur Kinder eines bestimmten Typs finden
 All children of a specific type
 
 ```php
@@ -192,22 +162,18 @@ foreach($children as $term){
 }
 ```
 
-// Die Eltern finden
 Find parent
 
 ```php
 $parent = $termService->getParent();
 ```
 
-// #### Assoziationen
 #### Associations
 
 // Damit Assoziationen funktionieren, muss zunächst eine m:n Tabelle von der zu Assoziierenden Tabelle zu `term_taxonomy` in der Datenbank angelegt werden. Außerdem muss Doctrine\ORM wissen, dass es diese Assoziation gibt, womit dem Entity ein neues Attribut verliehen werden muss.
-Before a Association can be used a m:n table must be created between `term_taxonomy` and the table to be associated.
-Additionally Doctrine\ORM needs to know about the association.
+Before a Association can be used, a m:n table must be created between `term_taxonomy` and the table to be associated.
+Additionally `Doctrine\ORM` needs to know about the association.
 
-
-// Eine Assoziation erstellen
 Creating an Association
 
 ```php
@@ -215,11 +181,10 @@ $termService = $sharedTaxonomyManager()->getTaxonomy('', $languageService)->getT
 $foolinks = $termService->associate('foolinks', $foolinkEntity);
 echo $termService->isAssociated('foolinks', $foolinkEntity); // outputs: true
 
-// Making things persistent
+// make things persistent
 $sharedTaxonomyManager()->getObjectManager()->flush();
 ```
 
-// Assoziierte Elemente holen
 Fetching assiciated elements
 
 ```php
@@ -227,7 +192,6 @@ $termService = $sharedTaxonomyManager()->getTaxonomy('', $languageService)->getT
 $foolinks = $termService->getAssociated('foolinks');
 ```
 
-// Eine Assoziation löschen
 Removing an association
 
 ```php
@@ -235,6 +199,6 @@ $termService = $sharedTaxonomyManager()->getTaxonomy('', $languageService)->getT
 $foolinks = $termService->removeAssociation('foolinks', $foolinkEntity);
 echo $termService->isAssociated('foolinks', $foolinkEntity); // outputs: false
 
-// Making things persistent
+// make things persistent
 $sharedTaxonomyManager()->getObjectManager()->flush();
 ```
