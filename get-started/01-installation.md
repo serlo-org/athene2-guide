@@ -10,6 +10,9 @@ group: 'getstarted'
 * [Vagrant](http://www.vagrantup.com/)
 * [VirtualBox](https://www.virtualbox.org/)
 * On Windows: [Cygwin](https://www.cygwin.com/)
+ 1. Make sure you click on "rsync" in the installation dialogue ( http://stackoverflow.com/questions/807053/cygwin-rsync )
+ 2. **Please make sure that cgywin is in your path. Vagrant needs "rsynch" for folder synchronization!**.
+ 3. See also: https://docs.vagrantup.com/v2/synced-folders/rsync.html
 
 ## Installation
 
