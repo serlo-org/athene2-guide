@@ -9,11 +9,16 @@ group: 'getstarted'
 
 * [Vagrant](http://www.vagrantup.com/)
 * [VirtualBox](https://www.virtualbox.org/)
-* On Windows: [MinGW](http://www.mingw.org/) (don't use CgyWin, because rsync hangs often)
+
+## Windows
+
+You need [MinGW](http://www.mingw.org/) (don't use CgyWin, because rsync over ssh is buggy in CgyWin). Also:
+
  1. Make sure you click on "rsync" and "openssh" in the installation dialogue: ![http://i.imgur.com/ePnGJlS.png](http://i.imgur.com/ePnGJlS.png)
  2. **Please make sure that rsync is in your path. The path on my system is: C:\MinGW\msys\1.0\bin**.
- 3. **WARNING:** Having multiple unix tools (Git, MinGW, CgyWin) in your path may cause rsync not to work because there are multiple OpenSSH installations. A error resulting from this looks like: `rsync error: error in rsync protocol data stream (code 12) at ...`. To resolve this, remove all other enviroments (Git, CgyWin) from your path or propose a different solution.
- 4. See also: https://docs.vagrantup.com/v2/synced-folders/rsync.html
+ 3. **WARNING:** Having multiple *unix "suites" (Git, MinGW, CgyWin)* in your path may cause rsync not to work because there are *multiple OpenSSH* installations. An error resulting from this looks like: `rsync error: error in rsync protocol data stream (code 12) at ...`. To resolve this, remove all other environments (Git, CgyWin) from your path or propose a different solution.
+ 4. If vagrant takes a long time at "rsync", use "vagrant rsync --debug" or "vagrant up --debug" to see what fails.
+ 5. See also: https://docs.vagrantup.com/v2/synced-folders/rsync.html
 
 ## Installation
 
