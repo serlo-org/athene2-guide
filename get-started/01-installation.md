@@ -32,4 +32,5 @@ You need [MinGW](http://www.mingw.org/) (don't use CgyWin, because rsync over ss
  * `copy src/config/autoload/develop.local.php.dist src/config/autoload/develop.local.php` (Windows)
 5. `cd vagrant/`
 6. `vagrant up`
-7. Click the link: [athene2](http://localhost:4567)
+7. **Keeping the files on the VM in Synch:** `vagrant rsync-auto`
+8. Click the link: [athene2](http://localhost:4567)
