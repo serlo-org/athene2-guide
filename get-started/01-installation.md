@@ -9,6 +9,7 @@ group: 'getstarted'
 
 * [Vagrant](http://www.vagrantup.com/)
 * [VirtualBox](https://www.virtualbox.org/)
+* rsync
 
 ## Windows
 
