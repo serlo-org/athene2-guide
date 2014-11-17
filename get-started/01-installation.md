@@ -31,6 +31,9 @@ You need [MinGW](http://www.mingw.org/) (don't use CgyWin, because rsync over ss
  * `copy src/config/autoload/local.php.dist src/config/autoload/local.php` (Windows)
  * `cp src/config/autoload/develop.local.php.dist src/config/autoload/develop.local.php` (Linux)
  * `copy src/config/autoload/develop.local.php.dist src/config/autoload/develop.local.php` (Windows)
+ * `cp src/public/htaccess.dist src/public/.htaccess` (Linux)
+ * `copy src/public/htaccess.dist src/public/.htaccess` (Windows)
+
 5. `cd vagrant/`
 6. `vagrant up`
 7. **Keeping the files on the VM in Synch:** `vagrant rsync-auto`
