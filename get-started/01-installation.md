@@ -23,16 +23,15 @@ You need [MinGW](http://www.mingw.org/) (don't use CgyWin, because rsync over ss
 
 ## Installation
 
-1. `vagrant box add hashicorp/precise64` - only needs to be done once per system
 2. `git clone https://github.com/serlo-org/athene2.git` - clones the git repository
 3. `cd athene2/` - the athene2 root directory
 4. Setup your local settings
  * `cp src/config/autoload/local.php.dist src/config/autoload/local.php` (Linux)
- * `copy src/config/autoload/local.php.dist src/config/autoload/local.php` (Windows)
+ * `copy src\config\autoload\local.php.dist src\config\autoload\local.php` (Windows)
  * `cp src/config/autoload/develop.local.php.dist src/config/autoload/develop.local.php` (Linux)
- * `copy src/config/autoload/develop.local.php.dist src/config/autoload/develop.local.php` (Windows)
+ * `copy src\config\autoload\develop.local.php.dist src\config\autoload\develop.local.php` (Windows)
  * `cp src/public/htaccess.dist src/public/.htaccess` (Linux)
- * `copy src/public/htaccess.dist src/public/.htaccess` (Windows)
+ * `copy src\public\htaccess.dist src\public\.htaccess` (Windows)
 5. `cd vagrant/`
 6. `vagrant up`
 7. **Keeping the files on the VM in Synch:** `vagrant rsync-auto`
