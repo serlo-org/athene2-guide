@@ -10,7 +10,7 @@ group: 'editor'
 The Athene2 Editor uses a Node JS server that converts the MD format into HTML. The NPM Registry loads the Athene2 Editor  
 
 ````
-cd src/modules/ui/assets
+cd src/assets
 npm install
 ````
 
@@ -35,7 +35,7 @@ Mit **pm2** (recommended):
 Initialise the server:
 
 ````
-pm2 start src/modules/Ui/assets/node_modules/athene2-editor/server/server.js
+pm2 start src/assets/node_modules/athene2-editor/server/server.js
 ````
 
 Shut down server:
@@ -49,7 +49,7 @@ Without pm2:
 Start:
 
 ````
-node src/modules/Ui/assets/node_modules/athene2-editor/server/server.js
+node src/assets/node_modules/athene2-editor/server/server.js
 ````
 
 Stop:
