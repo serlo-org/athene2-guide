@@ -23,7 +23,7 @@ You need [MinGW](http://www.mingw.org/) (don't use CgyWin, because rsync over ss
 
 ## Installation
 
-1. `git clone https://github.com/serlo-org/athene2.git` - clones the git repository
+1. `git clone git@github.com:serlo-org/athene2.git --recursive` - clones the git repository
 2. `cd athene2` - the athene2 root directory
 3. Setup your local settings
  * `cp src/config/autoload/local.php.dist src/config/autoload/local.php` (Linux)
